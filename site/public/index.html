@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"> <!--Imagem na aba do navegador-->
+    <!-- <link rel="stylesheet" href="css/style.css"> arquivo de estilo geral -->
+    <script src="js/funcoes.js"></script>
+    <title>ThermoHolic</title>
+</head>
+
+<body>
+    <div class="header"> <!--Div do card do menu-->
+        <div class="container"> <!--Conteúdo da navbar-->
+            <img class="logo" src="img/logo_thermoholic.png" alt="">
+            <ul class="navbar"> <!--Links do menu-->
+                <li><a href="#">Home</a></li>
+                <li><a href="#sobre-nos">Sobre Nós</a></li>
+                <li><a href="#participantes">Nossos Serviços</a></li>
+                <li><a href="calculadora.html">Simule Aqui</a></li>
+                <li><!--Espaço--></li>
+                <li>|</li>
+                <li><!--Espaço--></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="banner"> <!--Div com a área do primeiro banner-->
+        <div class="container"> <!--Conteúdo do Banner Um-->
+            <div class="texto-banner">
+                <h1>Procurando garantia e qualidade em sua cerveja artesanal?</h1>
+                <p>Temos a simbiose perfeita entre a cervejaria artesanal e tecnologia! Veja os benefícios da
+                    <span>ThermoHolic</span>.
+                </p>
+                <button class="botao-banner"><a href="#fale-conosco">Fale Conosco</a></button>
+            </div>
+            <img class="foto-banner" src="img/foto banner.jpg" alt="Foto de Tembela Bohle">
+        </div>
+    </div>
+
+    <!--Banner2-->
+    <div class="banner2"> <!--Div da área do banner dois-->
+        <div class="container"> <!--Conteúdo do banner dois-->
+            <div class="texto-sobre-nos"> <!--Div contendo os textos do banner dois-->
+                <h1>Sobre o Projeto</h1>
+                <p>Procuramos auxiliar no monitoramento da variação de temperatura nos tanques de fermentação,
+                    independente da receita presente no tanque. Por meio de um painel de gerenciamento é possível ter
+                    acesso à dados automatiamente atualizados pelos sensores instalados. </p>
+                <a class="botao-banner2" href="calculadora.html">Simule os benefícios para sua empresa!</a>
+            </div>
+            <div class="imagem-banner2"> <!--Div contendo a imagem do sobre nós-->
+                <img src="img/foto-login.jpg">
+            </div>
+        </div>
+    </div><!--Sobre Nós-->
+    <div id="sobre-nos" class="sobre-nos"> <!--Área do Sobre nós-->
+        <div class="container"> <!--Conteúdo do Sobre Nós-->
+
+            <div class="imagem-sobre-nos"> <!--Div com a imagem do banner dois-->
+                <img src="img/foto-cadastro.jpg">
+            </div>
+            <div class="texto-sobre-nos"> <!--Div com o texto do Sobre Nós-->
+                <h1>Sobre nós</h1>
+                <h2> Você já sentiu que poderia otimizar alguma etapa dentro da sua produção cervejeira?</h2>
+                <p> Somos uma empresa de monitoramento de temperatura nas cervejarias, especificamente na etapa de
+                    fermentação.
+                    Assim como bons consumidores, prezamos pela qualidade dos detalhes, por isso, o foco no seguimento
+                    de negócio e
+                    no público-alvo do seu cliente são pontos imprescindíveis para nossa empresa, ou seja, são pontos de
+                    partida
+                    para que a cerveja produzida agrade os consumidores do produto final.</p>
+            </div>
+
+        </div>
+        <div id="participantes" class="participantes"> <!--Conteúdo da Área de Participantes-->
+            
+            <div class="container"> <!--Conteúdo do participantes-->
+                
+                <div class="card-participantes"> <!--Conteúdo do card 1-->
+                    <img class="img-participantes" src="img/natalia.jfif" alt="">
+                    <span>Natália Campioli Russo</span>
+                </div>
+                <div class="card-participantes"> <!--Conteúdo do card 2-->
+                    <img class="img-participantes" src="img/luiz.jpg" alt="">
+                    <span>Luiz Guilherme Longatto Adorno</span>
+                </div>
+                <div class="card-participantes"> <!--Conteúdo do card 3-->
+                    <img class="img-participantes" src="img/isabel.jpg" alt="">
+                    <span>Isabel Bermudes de Oliveira</span>
+                </div>
+                <div class="card-participantes"> <!--Conteúdo do card 4-->
+                    <img class="img-participantes" src="img/gyulia.jpg" alt="">
+                    <span>Gyulia Martins Piqueira</span>
+                </div>
+                <div class="card-participantes"> <!--Conteúdo do card 5-->
+                    <img class="img-participantes" src="img/brudney.jpg" alt="">
+                    <span>Brudney Juvencio Ramos Junior</span>
+                </div>
+                <div class="card-participantes"> <!--Conteúdo do card 6-->
+                    <img class="img-participantes" src="img/alexandre.jpg" alt="">
+                    <span>Alexandre Damas Murata</span>
+                </div>
+                <h1>Participantes</h1> <!--Título, colocado em baixo por conta do row-reverse do style-->
+            </div>
+        </div>
+
+        <!--Nossos Serviços-->
+        <div id="nossos-servicos" class="nossos-servicos"> <!--Área dos Nossos Serviços-->
+            <div class="container"> <!--Conteúdo do Nossos Serviços-->
+                <h1> Nossos Serviços</h1>
+                <div class="card-servicos"> <!--Conteúdo do card 1-->
+                    <h4>Automatização</h4> 
+                    <span>A utilização de um processo automatizado permite obter uma maior eficácia e precisão no
+                        controle e
+                        medição durante o processo de fabricação de cerveja.</span>
+                </div>
+                <div class="card-servicos"> <!--Conteúdo do card 2-->
+                    <h4>Monitoramento</h4>
+                    <span>Utilizando nossos sensores e infraestrutura será possível o monitoramento das temperaturas do
+                        tanque de fermentação em tempo real.</span>
+                </div>
+                <div class="card-servicos"> <!--Conteúdo do card 3-->
+                    <h4>Otimização</h4>
+                    <span>Os dados serão apresentados em um painel de controle que será gerenciado pelo usuário.
+                        Permitindo a visualização de gráficos atualizados e alertas de risco na produção.</span>
+                </div>
+            </div>
+        </div>
+
+    <!--Rodapé-->
+    <div id="fale-conosco" class="background"> <!--Área do Rodapé-->
+        <div class="contato"> <!--Textos do rodapé-->
+            <span>Fale Conosco</span>
+            <span class="telefone">Group ThermoHolic (11) 97538-6290</span>
+        </div>
+        <div class="conteudo"> <!--Conteúdo do Rodapé-->
+            <div>
+                <div class="email">
+                    <span>ThermoHolic@outlook.com</span>
+                    <span>ThermoHolic.com.br</span>
+                </div>
+                <div class="icons"> <!--Área de contatos-->
+                    <a href="https://www.linkedin.com"><img src="img/linkedin.png" alt="Linkedin"></a>
+                    <a href="https://www.facebook.com"><img src="img/facebook.png" alt="Facebook"></a>
+                    <a href="https://www.instagram.com"><img src="img/instagram.png" alt="Instagram"></a>
+                    <a href="https://www.whatsapp.com"><img src="img/whatsapp.png" alt="WhatsApp"></a>
+                </div>
+            </div>
+            <div><a href="calculadora.html" class="botao">Simule Aqui</a></div>
+        </div>
+    </div>
+
+</body>
+
+</html>     

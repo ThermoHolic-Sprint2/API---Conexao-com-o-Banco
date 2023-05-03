@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"> <!--Imagem na aba do navegador-->
+            <link rel="stylesheet" href="css/style.css"><!--arquivo de estilo geral-->
+            <link rel="stylesheet" href="css/formulario.css"> <!-- arquivo de estilo dos formularios-->
+            <title>Login - ThermoHolic</title>
+        </head>
+        <body>
+            <div class="header-form"> <!-- àrea do menu-->
+                <div class="container"> <!-- conteúdo do menu-->
+                    <img class="logo" src="img/logo_thermoholic.png" alt=""/> <!-- logo-->
+                    <ul class="navbar"> <!-- lista de links do menu-->
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#sobre-nos">Sobre Nós</a></li>
+                        <li><a href="index.html#participantes">Nossos Serviços</a></li>
+                        <li><a href="calculadora.html">Simule Aqui</a></li>
+                        <li><!--Espaço--></li>
+                        <li>|</li>
+                        <li><!--Espaço--></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form"> <!-- àrea do card de login-->
+                <div class="containerlogin"> <!-- conteúdo do login-->
+                    <div class="texto-login"> <!-- Formulario do login-->
+                        <h1>Login</h1>
+                        <p>E-mail</p>
+                        <input class="input_number" type="email" id="input_email" placeholder="ex: ThermoHolic@outlook.com"/>
+                        <p>Senha</p>
+                        <input class="input_number" type="password" id="input_senha" placeholder="Insira sua senha..."/>
+                        <div class="texto1">
+                            <span>Não tem uma conta?  <a href="cadastro.html">Cadastre-se</a></span>
+                        </div>
+                        <a id="Alogin" href=""><button onclick="Logar()">Entrar</button></a>
+                    </div>
+                    <img class="img-login" src="img/foto-login.jpg" alt=""/><!-- Imagem Decorativa-->
+                </div>
+            </div>
+            <div class="rodape"> <!-- Área do rodape-->
+                <span id="contato"> 
+                    <b>Fale Conosco</b>
+                    <br/>
+                    ThermoHolic@outlook.com
+                    <br/>
+                    ThermoHolic.com.br
+                </span>
+                <div class="icons"> <!-- links dos meios de contato-->
+                    <a href="https://www.linkedin.com"><img src="img/linkedin.png" alt="Linkedin"/></a>
+                    <a href="https://www.facebook.com"><img src="img/facebook.png" alt="Facebook"/></a>
+                    <a href="https://www.instagram.com"><img src="img/instagram.png" alt="Instagram"/></a>
+                    <a href="https://www.whatsapp.com"><img src="img/whatsapp.png" alt="WhatsApp"/></a>
+                </div>
+            </div>
+        </body>
+    </html>
+    <script>
+        function Logar() {
+            var email = input_email.value
+            var senha = input_senha.value
+            if (email == "teste@gmail.com" && senha == "Senha123!") {
+                Alogin.href = "dashboard/Painel Geral.html"
+            } else {
+                Alogin.href = ""
+                alert("Email ou Senha Incorretos!")
+            }
+        }
+    </script>
