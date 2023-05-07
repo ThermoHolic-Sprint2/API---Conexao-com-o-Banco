@@ -1,343 +1,315 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*importação de fonte do google fontes com varias especuras diferentes*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Barlow', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: black;
+    /*configurações do corpo inteiro das paginas*/
+    background-color: #eaa638;
+    font-family: 'Poppins', sans-serif; /*fonte importada*/
+    margin: 0; /*tirar as margens colocadas automaticamente*/
 }
 
 .container {
-  width: 80%;
-  margin: auto;
-  display: flex;
+    /*configuração da area de conteudo*/
+    display: flex;
+    width: 80%;
+    margin: auto; /*quando o display é flex, a margem automatica deixa os elementos centralizados*/
 }
 
+/* Header*/
 .header {
-  border-bottom: 3px solid #32b9cd;
-}
+    /*menu*/
+    position: fixed; /*fixa o menu na a parte superior da tela, assim quando rolar a página ele ainda fica visivel*/
+    top: 0; /*define que vai ser fixo na parte superior*/
+    width: 98%;
+    height: 100px;
+    background-color: white;
+    border-radius: 20px; /*arredondamento da borda*/
+    display: flex;
+    justify-content: space-between; /*alinhamento horizontal*/
+    align-items: center; /*alinhamento vertical*/
+    margin: 20px; /*margem do card */
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2); /*sombreamento do menu*/
 
+}
 .header .container {
-  justify-content: space-between;
+    /*configuração do conteudo do menu*/
+    justify-content: space-between;
+    align-items: center;
 }
-
-.header a {
-  text-decoration: none;
-  color: #e3b062;
+.logo {
+    width: 300px; /*tamanho da imagem do logo*/
 }
-
-.agora {
-  font-weight: 800;
-}
-
 .navbar {
-  width: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none;
-  color: #e3b062;
+    /*configuração da lista com links no menu*/
+    width: 700px;
+    display: flex;
+    list-style: none; /*tira a estilização automatica da lista html */
+    justify-content: space-evenly;
+
+}
+.navbar li a {
+     /*estilização dos links*/
+    color: black;
+    text-decoration: none; /*tira a estilização automatica do link (a href) do html*/
+    font-size: 18px; /*tamanho da fonte*/
+    font-weight: 600; /*grossura da fonte*/
+}
+.navbar li a:hover {
+    /*'animação' dos links, quando passar o mouse troca a cor em 0.5 segundos*/
+    color: #FFC107;
+    transition: 0.5s;
+
 }
 
-
-.titulo {
-  color: #32b9cd;
-  width: fit-content;
-  font-weight: 500;
-}
-
-
-/* BANNER */
-
+/*Banner*/
 .banner {
-  height: fit-content;
-  padding: 40px 0;
-  color: white;
-  background-image: url(".././assets/imgs/bg-jelly-fish-para_outras_pags.png");
-  background-size: cover;
+    /*configuração da banner inicial do site*/
+    margin-top: 170px;
 }
-
 .banner .container {
-  height: 400px;
-  font-size: 36px;
-  justify-content: center;
-  align-items: center;
+    /*conteudo do banner*/
+    justify-content: space-around;
 }
-
-.tamanho-conteudo { 
-  height: fit-content !important;
-}
-
-.banner p {
-  width: 50%;
-  margin: 0;
-  padding: 0;
-  width: 280px;
-  font-size: 36px;
-}
-
-.banner .container span {
-  font-weight: 800;
-}
-
-/* missao visao valores */
-
-.social {
-  background-color: #e5e5e5;
-  display: flex;
-}
-
-.social .container{
-  justify-content: center;
-}
-
-.box img {
-  width: 170px;
-}
-
-.social .container .boxes {
-  display: flex;
-}
-
-.social p {
-  text-align: center;
-}
-
-.box {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* FOOTER */
-
-.footer {
-  background-color: #32b9cd;
-  height: 150px;
-  color: #fff;
-  display: flex;
-  font-size: 15px;
-}
-
-.footer .container {
-  justify-content: center;
-  text-align: center;
-}
-
-.footer .container .version {
-  font-size: 12px;
-}
-
-
-/* LOGIN */
-
-.banner .container .card {
-  background-color: #e5e5e5;
-  height: fit-content;
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  color: palevioletred;
-  align-items: center;
-  border-radius: 4px;
-}
-
-.card {
-  display: flex;
-  justify-content: space-around;
-}
-
-.card h2 {
-  font-size: 30px;
-}
-
-.card h4 {
-  font-size: 16px;
-}
-
-.banner #div_erros_login {
-  margin-top: 15px;
-}
-
-button {
-  cursor: pointer;
-}
-
-/* FORMULARIO */
-
-.alerta_erro{
-  display: flex;
-  justify-content: flex-end;
-}
-
-.card_erro {
-  display: none;
-  background-color: #fff;
-  color: black;
-  width: 230px;
-  position: fixed;
-  border-radius: 4px;
-  border: #e6005a 3px solid;
-  padding: 10px;
-  margin-right: 10%;
-}
-
-.card_erro #mensagem_erro{
-  font-weight: 500;
-  font-size: 20px;
-}
-
-.formulario .tipo_campo {
-  font-size: 20px;
-  font-weight: 600 !important;
-}
-
-.formulario {
-  display: flex;
-  flex-direction: column;
-}
-
-input {
-  margin-bottom: 10px;
-  border: 2px solid #32b9cd;
-  padding: 10px;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.btn {
-  font-family: "Barlow", sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 10px 15px;
-  color: white;
-  background-color: #e6005a;
-  width: 120px;
-  align-self: center;
-  margin-top: 5px;
-}
-
-.loading-div {
-  width: 50px;
-  margin: auto;
-  display: none;
-}
-
-.loading-div img {
-  height: 50px;
-  width: 50px;
-}
-
-/* PAGINA DOS GRÁFICOS */
-
-.janela {
-  display: flex;
-  width: 100vw;
-}
-
-.header-left a {
-  text-decoration: none;
-  color: white;
-}
-
-.header-left {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  height: 100vh;
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  border-right: 3px solid #32b9cd;
-  background-color: #212124;
-  /* border: 3px solid pink; */
-}
-
-.dash-right {
-  display: flex;
-  width: 80%;
-  height: fit-content;
-  background-color: #161618;
-  position: relative;
-  top: 0;
-  left: 25%;
-}
-
-.header-left h1 {
-  color: #32b9cd;
-}
-
-.hello {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.hello h3 {
-  color: #e3b062;
-  font-weight: 300;
-  font-size: 1.2rem;
-}
-
-.hello h3 span {
-  font-weight: 800;
-}
-
-.btn-nav {
-  width: 40%;
-  color: white;
-  background-color: #e6005a;
-  border-radius: 5px;
-  text-align: center;
-  padding: 2% 5%;
-}
-
-.btn-nav-white {
-  width: 40%;
-  background-color: white;
-  border: 3px solid #e6005a;
-  border-radius: 5px;
-  text-align: center;
-  padding: 2% 5%;
-}
-
-.btn-nav-white h3 {
-  color: #e6005a;
-  padding: 0;
-  margin: 0;
-}
-
-.btn-nav h3,
-.btn-logout h3 {
-  margin: 0;
-  padding: 0;
-}
-
-.btn-logout {
-  margin: 0;
-  padding: 0;
-  width: 20%;
-  background-color: #32b9cd;
-  color: white;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px 15px;
-  margin-bottom: 100px;
-  cursor: pointer;
-}
-
-/* pagina extra - simulador */
-.simulador {
-  color: white;
+.texto-banner {
+    /*bloco de texto do banner*/
+    color: white;
+    width: 40%; /*tamanho*/
 
 }
+.texto-banner p {
+    /*configuração apenas da tag p do bloco de texto do banner*/
+    font-size: 30px;
+}
+.texto-banner h1 {
+    /*configuração apenas da tag h1 do bloco de texto do banner*/
+    font-size: 40px;
+}
+.texto-banner p span {
+    /*configuração apenas da tag span do bloco de texto do banner*/
+    font-weight: 700; 
+}
+.foto-banner {
+    /*configuração da imagem do banner*/
+    width: 370px;
+    border-radius:200px; 
+    margin: 30px;
+}
+.botao-banner {
+    /*configuração do botão de fale conosco do banner*/
+    background-color: white;
+    font-size: 20px;
+    border: none; /*tira a estilização automatica do html*/
+    border-radius: 10px; 
+    padding: 10px 60px; /*espacamento dentro do botão*/
 
-.simulador .container {
-  flex-direction: column
+}
+.botao-banner:hover {
+     /*'animação' do botão quando o mouse passar*/
+    background-color: white;
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2); /*sombreamento: top right bottom left cor*/
+    transition: background-color 0.2s; /*tempo da transição da animação*/
+}
+.botao-banner a {
+    /*configuração do link do botão*/ 
+    color: black;
+    text-decoration: none; /*tira a estilização automatica do link do html*/
+}
+
+/*banner2*/
+.banner2 .container {
+    /*configuração do banner 2 -Sobre o projeto*/
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    padding-bottom: 50px; /*espacamento dentro da div*/
+}
+.imagem-banner2 img{
+    /*configuração da imagem do banner 2 -Sobre o projeto*/
+    width: 700px;
+    border-radius: 400px 0px 0px 400px; /*top right bottom left*/
+    margin: 20px 0px 20px 0px; /*top right bottom left*/
+}
+.botao-banner2 {
+    /*configuração do link do banner 2 -Sobre o projeto*/
+    text-decoration: none; /*tira a estilização automatica do link do html*/
+    color: #eaa638;
+    font-size: 20px;
+}
+.botao-banner2:hover {
+     /*'animação' do link quando o mouse passar*/
+    text-decoration: underline; /*colocando o sublinhado no texto*/
+}
+
+/*Sobre Nos*/
+.sobre-nos .container {
+    /*configuração do conteudo do banner 3 -Sobre nos*/
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+}
+.texto-sobre-nos h1{
+    /*configuração do titulo do banner 3 -Sobre nos*/
+    text-align: center; /*alinha apenas textos*/
+    
+}
+.container .imagem-sobre-nos img {
+    /*configuração da imagem do banner 3 -Sobre nos*/
+    width: 500px;
+    border-radius: 0px 400px 400px 0px; /*top right bottom left*/
+    margin: 20px 0px 20px 0px;
+}
+.container .texto-sobre-nos {
+    /*configuração do bloco de texto do banner 3 -Sobre nos*/
+    width: 65%;
+    margin: 10px 50px; /*top/bottom left/right*/
+    font-family: Poppins;
+    color: #3b280a;
+    font-style: normal; /*sem estilização na letra*/
+    font-weight: 500; /*espeçura da letra*/
+    font-size: 18px; /*tamanho letra*/
+    line-height: 50px; /*espaçamento vertical entre as linhas do texto*/
+    text-align: justify; /*alinhamento do texto*/
+}
+
+/*Participantes*/
+.participantes .container {
+    /*configuração do conteudo do Participantes*/
+    justify-content: space-evenly;
+    width: auto;
+    align-items: center;
+    flex-direction: row-reverse; /*alinha os itens da direita para a esquerda*/
+    height: 300px;
+}
+.card-participantes {
+    /*configuração dos cards do Participantes*/
+    display: flex;
+    flex-direction: column; /*alinhando os textos em coluna*/
+    width: 10%;
+    height: 200px;
+    text-align: center; /*alinha apenas textos para o centro*/
+}
+.img-participantes {
+    /*configuração das imagens do Participantes*/
+    height: 140px;
+    border-radius: 300px; /*arredondamento das imagens*/
+}
+
+/*Nossos Serviços*/
+.nossos-servicos .container {
+    /*configuração do conteudo do Nossos Serviços*/
+    background-color: #eaa638;
+    justify-content: space-around;
+    width: auto;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+.nossos-servicos h1 {
+    /*configuração do titulo do Nossos Serviços*/
+    color: white;
+}
+.card-servicos {
+    /*configuração do card do Nossos Serviços*/
+    background-color: white;
+    padding: 40px; /*espacamento dentro do card*/
+    width: 20%;
+    height: 300px;
+    margin: 50px;
+    border-radius: 20px; 
+}
+.card-servicos:hover {
+    /*'animação' do card quando o mouse passar*/
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+    transition: 0.2s; /*transição para a imagem de 0.2 segundos*/
+}
+.card-servicos h4 {
+    /*configuração do titulo do card do Nossos Serviços*/
+    color: #eaa638;
+}
+.card-servicos span {
+    /*configuração do span do card do Nossos Serviços*/
+    width: 100px;
+    text-align: center;
+}
+
+/*rodape*/
+
+.background {
+     /*configuração da div maior do Fale Conosco*/
+    position: absolute; /*tornando a posição absoluta*/
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/imagem-cerveja.png); /*colocando a imagem de background*/
+    background-size: cover; /*cobre toda a div*/
+}
+.conteudo {
+    /*configuração da div menor do Fale Conosco*/
+    position: absolute; /*tornando a posição absoluta*/
+    bottom: 0; 
+    width: 100%;
+    height: 250px;
+    background-color: #3B280AAB;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.contato {
+    /*configuração da parte de contatos do Fale Conosco*/
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 80px;
+    font-weight: bold; /*espeçura da fonte*/
+    flex-direction: column; /*trocar o direcionamento de linear para coluna*/
+    align-items: center; /*apos virar coluna, se torna o alinhamento horizontal*/
+    justify-content: end; /*apos virar coluna, se torna o alinhamento vertical*/
+    display: flex;
+    margin-top: 200px;
+}
+.telefone {
+    /*configuração do texto telefone do Fale Conosco*/
+    font-size: 30px; 
+    font-weight: normal; /*espeçura da fonte*/
+    margin: 10px;
+}
+.botao {
+    /*configuração do botão do Fale Conosco*/
+    background-color: #FFA700;
+    color: white;
+    font-weight: bold; /*espeçura da fonte*/
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none; /*tira a estilização automatica*/
+    border-radius: 20px; 
+    padding: 30px 95px;
+}
+.botao:hover {
+    /*'animação' do botao quando o mouse passar*/
+    background-color: #FFC107;
+    transition: background-color 0.3s ease; /*tempo de transição */
+}
+.icons {
+    /*configuração dos icons do Fale Conosco*/
+    width: auto; /*centralizar*/
+}
+.icons img {
+    /*configuração das imagens de contato do Fale Conosco*/
+    width: 50px;
+    height: 50px;
+    margin-top: 50px;
+    margin-right: 40px;
+}
+.email {
+    /*configuração do email de contato do Fale Conosco*/
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+
+}
+.email span {
+    /*configuração do email de contato do Fale Conosco*/
+    display: block;
 }

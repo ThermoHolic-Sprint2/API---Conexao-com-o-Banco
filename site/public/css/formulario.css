@@ -1,0 +1,245 @@
+/*Menu*/
+/*diferente do menu index, pois aqui ele é fixo no início da página*/
+.header-form {
+
+    width: 98%;
+    height: 100px;
+    background-color: white;
+    border-radius: 20px; /*arredondamento da borda*/
+    display: flex;
+    justify-content: space-between; /*alinhamento horizontal*/
+    align-items: center; /*alinhamento vertical*/
+    margin: 20px; /*margem do card */
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2); /*sombreamento do menu*/
+
+}
+.header-form .container {
+    /*alinhamentos especiais para a área contendo o conteúdo*/
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    /*tamanho do logo*/
+    width: 300px;
+}
+
+.navbar {
+    /*configuração da lista com links no menu*/
+    width: 700px;
+    display: flex;
+    list-style: none; /*tira a estilização automatica da lista html */
+    justify-content: space-evenly;
+
+}
+
+.navbar li a {
+    /*estilização dos links*/
+    color: black;
+    text-decoration: none; /*tira a estilização automatica do link (a href) do html*/
+    font-size: 18px; /*tamanho da fonte*/
+    font-weight: 600; /*grossura da fonte*/
+}
+.navbar li a:hover {
+    /*'animação' dos links, quando passar o mouse troca a cor em 0.5 segundos*/
+    color: #FFC107;
+    transition: 0.5s;
+
+} 
+
+/*Calculadora*/ 
+
+.texto-calculadora {
+    /*definição do tamanho da div com os textos*/
+    width: 600px;
+}
+
+.card{
+    /*card no qual o conteúdo do formulário está*/
+    background-color: #ffffff;  
+    justify-content: space-around;
+    margin: 80px;  
+    text-align: center; /*alinha apenas os textos*/
+    /* height: 100%; nao funcional*/
+    width: 800px;
+    display: flex;
+    flex-direction: column; /*trocar o direcionamento de linear para coluna*/
+    justify-content: center; /*apos virar coluna, se torna o alinhamento vertical*/
+    align-items: center; /*apos virar coluna, se torna o alinhamento horizontal*/
+    border-radius: 20px; 
+    font-family: 'Poppins', sans-serif; /*fonte definida pelo import no arquivo de estilo geral*/
+    
+}
+
+.containerforms {
+    /*configuração do conteudo do formunlario da calculadora*/
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.card:hover{
+    /*'animação' que gera um sombreamento no card quando o mouse passar*/
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+
+button{
+    /*estilização do botão da página da calculadora*/
+    background-color: #FFA700 ;
+    color: #ffffff;
+    width: 170px;
+    height: 50px;
+    border-style: none; /*tira a estilização automatica do botão do html*/
+    border-radius: 10px;
+    cursor: pointer; /*muda a imagem do cursor quando passar pelo botão*/
+    margin: 10px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+button:hover{
+    /*'animação' do botão quando o mouse passar*/
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+    background-color: #FFC107;
+    color: white;
+    transition-duration: 0.3s; /*duração da transição da animação*/
+}
+/* button:active{
+    transform: translateY(4px);
+} */
+.input_number{ 
+    /*estilização de TODOS os inputs dos formularios do site*/
+    width: 80%;
+    font-family: 'Poppins', sans-serif;
+    height: 30px;
+    border-style: none;
+    background-color: #d9d9d987;
+    border-radius: 5px;
+} 
+
+.div_msg {
+    /*area da mensagem de resposta da calculadora*/
+    margin: 20px;
+}
+
+.card h1 {
+    /*estilização do titulo da calculadora*/
+    color: #AD8442;
+}
+
+
+/*Cadastro*/
+
+.texto-cadastro { /*formulario de cadastro*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*alinhamento horizontal*/
+    align-items: center; /*alinhamento vertical*/
+    margin: auto;
+    width: 90%;
+    height: 90%;
+}
+
+.containerlogin span { 
+    width: 80%;
+    font-size: 12px;
+}
+
+.img-cadastro{ 
+    width: 40%; /* largura*/
+    border-radius: 20px 0px 0px 20px;/*borda da imagem (top right bottom left)*/
+}
+
+/*Novo Cadastro*/
+
+.novo-cadastro{
+    border: 2px solid rgba(0, 0, 0, 0.401);
+}
+
+/*Login*/
+
+.form{
+    /*card da area de login e cadastro*/
+    margin: 100px 20% 50px 20%; /*tag unica que configura tds as margens (top right bottom left)*/
+    width: 60%;
+    border-radius: 20px;
+    height: fit-content; /*o tamanho do card é suficiente para caber o conteudo*/
+    background-color: white;
+}
+.containerlogin {
+    /*conteudo do formulário de login e cadastro */
+    display: flex;
+    justify-content: space-around; /* os itens são distribuídos igualmente no espaço disponível ao redor deles */
+}
+.form .containerlogin .texto-login{
+    /*configuração dos textos*/
+    display: flex;
+    flex-direction: column; /*trocar o direcionamento de linear para coluna*/
+    justify-content: center; /*apos virar coluna, se torna o alinhamento vertical*/
+    align-items: center;  /*apos virar coluna, se torna o alinhamento horizontal*/
+    margin: auto; /*quando o display é flex, a margem automatica deixa os elementos centralizados*/
+    width: 80%;
+    height: 90%;
+}
+
+.form .containerlogin h1{
+    /*estilizaçao do titulo*/
+    color: #AD8442;
+}
+.form .containerlogin p{
+    /*estilização dos textos*/
+    align-self: self-start; /*alinha apenas este elemento para o inicio*/
+    margin-left: 10%;
+}
+
+.form .containerlogin a{ 
+    /*estilização dos links*/
+    color: #3B280A;
+    
+}
+.texto1{
+    /*div contendo o texto de direcionamento entre login e cadastro*/
+    width: 50%;
+    justify-content: space-between;
+    margin-top: 30px;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.texto1 span {
+    /*estilização do texto de direcionamento entre login e cadastro*/
+    width: fit-content;
+}
+
+.img-login{
+    /*imagem do login*/
+    width: 40%;
+    border-radius: 0px 20px 20px 0px; /*borda da imagem (top right bottom left)*/
+}
+
+/*rodape*/
+.rodape {
+    /*configuração da area de rodape*/
+    /* bottom: 0;
+    left: 0;
+    right: 0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    background-color: #3B280A;
+    height: 250px;
+    color: white;
+    line-height: 48px; /*espacamento vertical entre as linhas*/
+    font-size: 17px;
+}
+
+.rodape #contato {
+    /*elemento contato (emails)*/
+    margin-left: 50px;
+}
+.rodape .icons img {
+    /*configuração das imagens de contato do rodape*/
+    margin: 10px 0px 20px 50px; /* ordem: top right bottom left*/
+    width: 30px;
+    height: 30px;
+}
