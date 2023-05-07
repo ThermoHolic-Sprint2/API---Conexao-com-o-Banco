@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"> <!--Imagem na aba do navegador-->
+    <title>Simulador financeiro - ThermoHolic</title>
+    <link rel="stylesheet" href="css/style.css"> <!--arquivo de estilo geral-->
+    <link rel="stylesheet" href="css/formulario.css"> <!-- arquivo de estilo para fomrularios-->
+</head>
+
+<body>
+
+    <!-- Nosso cabeçalho -->
+    <div class="header-form">
+        <div class="container">
+            <img class="logo" src="img/logo_thermoholic.png" alt="">
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#sobre-nos">Sobre Nós</a></li>
+                <li><a href="index.html#participantes">Nossos Serviços</a></li>
+                <li><a href="calculadora.html">Simule Aqui</a></li>
+                <li><!--Espaço--></li>
+                <li>|</li>
+                <li><!--Espaço--></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- FIM DO CABEÇALHO -->
+
+    <!-- COMEÇO DO FORMULARIO -->
+    <div class="containerforms">
+        <div class="card">
+            <h1>Simulador</h1>
+            <div class="texto-calculadora">
+                <p>Insira a quantidade de tanques dedicados à etapa de fermentação que você tem na sua cervejaria:</p>
+                <input type="number" class="input_number" id="qtd_tanques" /><br /><br />
+
+                <p>Insira a quantidade de litros que você produz por mês em cada tanque:</p>
+                <input type="number" class="input_number" id="input_produção" /><br /><br />
+
+                <p>Insira a quantidade de litros que você perde por mês por problemas de temperatura na
+                produção:</p>
+                <label for="porcento">Porcentagem</label>
+                <input name="porcento" type="radio" id="radio3">
+                <br />
+                <label for="porcento">Exato</label>
+                <input name="porcento" type="radio" id="radio4">
+                <br />
+                <input type="number" class="input_number" id="input_perdalitrosporcento"><br /><br />
+
+                <p>Insira o valor de venda por litros de cerveja artesanal:</p>
+                <input type="number" class="input_number" id="input_valorLitro" /><br /><br />
+
+                <p>Insira o valor de cada pacote de fermento que você utiliza:</p>
+                <input type="number" class="input_number" id="input_pacote" /><br /><br />
+
+                <p>Insira a quantidade de litros que um pacote fermenta:</p> 
+                <input type="number" class="input_number" id="input_litrosPacote" /><br /><br />
+
+                <p>Insira qual tipo de fermento você utiliza:</p> 
+                <label for="Bear">Ale</label>
+                <input name="Bear" type="radio" id="radio1">
+                <br />
+                <label for="Bear">Lager</label>
+                <input name="Bear" type="radio" id="radio2">
+            </div>
+            <br /><br />
+            <button onclick="Calcular()">Calcular</button>
+
+            <div class="div_msg">
+                <div id="div_mensagem"></div>
+            </div>
+        </div>
+    </div>
+    <!-- FIM DO FORMULARIO -->
+    <!-- COMEÇO RODAPÉ -->
+    <div class="rodape">
+        <span id="contato">ThermoHolic@outlook.com <br>
+            ThermoHolic.com.br</span>
+            <div class="icons">
+                <a href="https://www.linkedin.com"><img src="img/linkedin.png" alt="Linkedin"></a>
+                <a href="https://www.facebook.com"><img src="img/facebook.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com"><img src="img/instagram.png" alt="Instagram"></a>
+                <a href="https://www.whatsapp.com"><img src="img/whatsapp.png" alt="WhatsApp"></a>
+            </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    function Calcular() {
+        //declaracao de variaveis
+        var tanques = Number(qtd_tanques.value)
+        var produçãoLitros = Number(input_produção.value)
+        var perda = Number(input_perdalitrosporcento.value)
+        var valorLitro = Number(input_valorLitro.value)
+        var precoPacote = Number(input_pacote.value)
+        var litrosPorPacote = Number(input_litrosPacote.value)
+
+        var totalLitros = tanques * produçãoLitros
+        if (radio3.checked == true) {//insere o valor em porcentagem
+            var ValorTotalPerda1 = (totalLitros * perda) / 100
+            var ValorTotalPerda = perda
+            var texto = " litros"
+        } else if (radio4.checked == true) {//insere o valor em litros
+            var ValorTotalPerda = (perda * 100) / totalLitros//o que ele perde, multiplicado por 100, dividido pelo total (para descobr/ir a porcentagem)
+            var ValorTotalPerda1 = (perda * 100) / totalLitros
+            var texto = "%"
+        }
+        var perdaPacote = ((totalLitros / litrosPorPacote) * precoPacote) * (ValorTotalPerda / 100)
+        var dinheiro = (totalLitros * valorLitro) * (ValorTotalPerda / 100)
+
+        var dias = ""//apenas declara uma variável de quantidade de dias
+        if (radio1.checked == true) {//verifica se o radio1 está marcado
+            dias = 4//caso sim define que dias é igual a 4
+        } else if (radio2.checked == true) {//se não verifica se o radio1 está marcado
+            dias = 7//caso sim define que dias é igual a 7
+        }
+        div_mensagem.innerHTML = `Em sua cervejaria artesanal você produz <b>${totalLitros}</b> litro(s), 
+            porém por conta da falta de controle eficiente e automatizado, há uma perda de <b>${ValorTotalPerda1.toFixed(2)}${texto}</b> em sua produção. <br/>
+            Em relação à perda financeira, há um desperdício de <b>R$${perdaPacote.toFixed(2)}</b> com gastos no que respeita aos pacotes de fermento. Além disso, por você deixar de vender o(s) litro(s) perdido(s), 
+            consequentemente deixará de receber <b>R$${dinheiro.toFixed(2)}</b>, que seria originado através da(s) venda(s) do(s) litro(s) de cerveja. <br/>
+            Já em relação à perda de tempo, há um défict de <b>${dias} dia(s)</b> de atraso por lote ou tanque perdido. <br><br>
+           Senso assim, oferecemos a solução perfeita para você! Venha monitorar e receber alertas referentes à sua produção
+            antes que ocorra algum problema. Garantimos 95% de eficiência na nossa solução.`
+
+        var calcula_quantidade_lm35_placa_mae = tanques / 25//calcula o quantidade de lm35 e placa mãe a cada 25 tanques
+        var calcula_orçamento_serviço = calcula_quantidade_lm35_placa_mae * 100//calcula a taxa de serviço, 100 reais para cada lm35 ou placa mãe montados
+        var calcula_orçamento_fios = ((calcula_quantidade_lm35_placa_mae * 3) / 40) * 15//descobre a quantidade de fios para lm35 contectado na placa mãe (3 fios), depois divide por 40 fios na caixinha, depois vezes 15 reais, que é o valor de uma caixa de fios no valor atual
+        var calcula_orçamento_total = (calcula_quantidade_lm35_placa_mae * 100) + calcula_orçamento_fios + calcula_orçamento_serviço//multiplica por 100, pois são 50 reais para um lm35 e outros 50 para uma placa mãe, depois soma os valores dos fios, depois soma a taxa de serviço
+        if (calcula_orçamento_total < 215) {//se for um valor muito baixo, esse if define um valor mínimo
+            calcula_orçamento_total = 215//define um orçamento mínimo
+        }
+        // div_mensagem.innerHTML += `<br/>Também definimos um orçamento aproximado de R$${calcula_orçamento_total.toFixed(2)}`
+    }
+</script>
