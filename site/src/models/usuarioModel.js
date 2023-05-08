@@ -17,7 +17,6 @@ function entrar(email, senha) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-
 var NOME_EMPRESA = "";
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
@@ -32,6 +31,8 @@ function cadastrarEmpresa(nome, email, cnpj) {
 
     NOME_EMPRESA = nome;
     console.log("Executando a instrução SQL: \n" + instrucao);
+    localStorage.setItem("idEmpresateste", get_idEmpresa());
+    // localStorage.ID_EMPRESA_TESTE =  get_idEmpresa();
     return database.executar(instrucao);
 }
 
@@ -52,7 +53,7 @@ function cadastrarUsuario(nome, email, tell, cpf, senha) {
     
 }
 
-function get_idEmpresa(idEmpresa){
+function get_idEmpresa(NOME_EMPRESA){
     // console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, tell, cpf, senha);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
@@ -66,6 +67,7 @@ function get_idEmpresa(idEmpresa){
     `;
     console.log("Executando a instrução SQL: \n" + idEmpresa);
     return database.executar(idEmpresa);
+
     // console.log("Executando a instrução SQL: \n" + instrucao);
     // return database.executar(idEmpresa); 
 }
