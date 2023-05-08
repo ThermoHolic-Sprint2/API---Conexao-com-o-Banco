@@ -48,7 +48,7 @@
     <div class="form"> <!--card do formulario-->
         <div class="containerlogin"> <!--conteudo do cadastro (usamos a mesma estilização do login)-->
             <img class="img-cadastro" src="img/foto -cadastro.jpg" alt=""> <!--imagem decorativa-->
-            <div class="texto-cadastro"> <!--formulario de cadastro-->
+            <div class="texto-cadastro" id="Troca_Cadastro"> <!--formulario de cadastro-->
                 <h1>Cadastro</h1>
                 <h4>Dados da sua Empresa</h4>
                 <p>Nome</p>
@@ -61,31 +61,10 @@
                 <input id="cnpj_empresa" class="input_number" type="text" placeholder=" ex: XX. XXX. XXX/0001-XX." oninput="CNPJ()"/>
                 <div id="div_cnpj01"></div>
                 <div id="div_cnpj14"></div>
-                <h4>Dados do seu Administrador</h4>
-                <p>Nome</p>
-                <input id="nome_admin" class="input_number" type="text" placeholder=" Insira o nome do administrador"/>
-                <p>E-mail</p>
-                <input id="email_admin" class="input_number" type="text" placeholder=" ex: usuario@empresa.com" oninput="EmailA()"/>
-                <div id="div_emailAA"></div>
-                <div id="div_emailAP"></div>
-                <p>Telefone Celular</p>
-                <input id="telefone_admin" class="input_number" type="text" placeholder=" ex: xx xxxxx-xxxx" oninput="Telefone()"/>
-                <div id="div_telefone"></div>
-                <p>CPF</p>
-                <input id="cpf_admin" class="input_number" type="text" placeholder=" ex: xxx.xxx.xxx-xx" oninput="CPF()"/>
-                <div id="div_cpf"></div>
-                <p>Senha</p>
-                <input id="senha_admin" class="input_number" type="password" placeholder=" *******" oninput="Senha()"/>
-                <div id="div_senha8"></div>
-                <div id="div_senhaH"></div>
-                <span>Deve conter no mínimo 8 caracteres e um '#'.</span>
-                <p>Confimar sua senha</p>
-                <input id="confirmar_senha" class="input_number" type="password" placeholder=" *******" oninput="Confirmar_Senha()"/>
-                <div id="div_confirmar"></div>
                 <div class="texto1">
                     <span>Já tem uma conta? <a href="login.html">Faça Login</a></span>
                 </div>
-                <button onclick="cadastrar_empresa(), cadastrar_usuario()">Cadastrar</button>
+                <button onclick="cadastrar_empresa()">Cadastrar</button>
             </div>
         </div>
     </div>
@@ -156,7 +135,7 @@
     //         alert('Confirme sua senha novamente.')
     //     }
     // }
-
+        
     function cadastrar_empresa() {
         aguardar();
 
@@ -165,6 +144,7 @@
         var nomeVar = nome_empresa.value;
         var emailVar = email_empresa.value;
         var cpnjVar = cnpj_empresa.value;
+        var cadastraEmp = 0;
         // var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
         if (nomeVar == "" || emailVar == "" || cpnjVar == "") {
@@ -183,9 +163,9 @@
             return false;
 
         } else if (cpnjVar.indexOf("/0001") < 0 || // se o texto do input tem '/0001'
-            cpnjVar.length != 14) { // se o texto do input tem 14 caracteres  
+            cpnjVar.length != 18) { // se o texto do input tem 14 caracteres  
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(CNPJ deve conter /0001)";
+            mensagem_erro.innerHTML = "(CNPJ deve conter /0001 ou 18 caracteres)";
 
             finalizarAguardar();
             return false;
@@ -193,6 +173,7 @@
         }
         else {
             setInterval(sumirMensagem, 5000)
+            cadastraEmp = 1;
         }
 
 
@@ -210,7 +191,6 @@
                 cnpjServer: cpnjVar
             })
         }).then(function (resposta) {
-
             console.log("resposta: ", resposta);
 
             // if (resposta.ok) {
@@ -230,12 +210,39 @@
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
             finalizarAguardar();
+            return false;
         });
 
-        return false;
-
+        
+        if (cadastraEmp == 1) {
+            Troca_Cadastro.innerHTML = `
+            <h1>Cadastro</h1>
+            <h4>Dados do seu Administrador</h4>
+                <p>Nome</p>
+                <input id="nome_admin" class="input_number" type="text" placeholder=" Insira o nome do administrador"/>
+                <p>E-mail</p>
+                <input id="email_admin" class="input_number" type="text" placeholder=" ex: usuario@empresa.com" oninput="EmailA()"/>
+                <div id="div_emailAA"></div>
+                <div id="div_emailAP"></div>
+                <p>Telefone Celular</p>
+                <input id="telefone_admin" class="input_number" type="text" placeholder=" ex: xx xxxxx-xxxx" oninput="Telefone()"/>
+                <div id="div_telefone"></div>
+                <p>CPF</p>
+                <input id="cpf_admin" class="input_number" type="text" placeholder=" ex: xxx.xxx.xxx-xx" oninput="CPF()"/>
+                <div id="div_cpf"></div>
+                <p>Senha</p>
+                <input id="senha_admin" class="input_number" type="password" placeholder=" *******" oninput="Senha()"/>
+                <div id="div_senha8"></div>
+                <div id="div_senhaH"></div>
+                <span>Deve conter no mínimo 8 caracteres e um '#'.</span>
+                <p>Confimar sua senha</p>
+                <input id="confirmar_senha" class="input_number" type="password" placeholder=" *******" oninput="Confirmar_Senha()"/>
+                <div id="div_confirmar"></div>
+                <button onclick="cadastrar_usuario()">Cadastrar</button>
+            `;
+        }
     }
-
+    
     function cadastrar_usuario() {
         aguardar();
 
@@ -289,13 +296,12 @@
             // if (modulo[1] == 10) {// Caso o módulo det 10, ficará apenas o 0
             //     modulo[1] = 0;
             // }
-            var texto = "Não é válido"
+            var texto = "Não é válido";
 
             // Verifica se o módulo é igual aos dois últimos digitos
             if (modulo == cpfVar[9] + cpfVar[10]) {
-                texto = "É válido"
+                texto = "É válido";
             }
-
             // mensagem_cpf.innerHTML = texto
             // mensagem_cpf.innerHTML = modulo
             // mensagem_cpf.innerHTML = cpf
@@ -308,9 +314,9 @@
 
             finalizarAguardar();
             return false;
-        } else if (cpfVar.length != 11) {
+        } else if (cpfVar.length != 14) {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "CPF Precisa de 11 digitos";
+            mensagem_erro.innerHTML = "CPF Precisa de 14 digitos";
 
             finalizarAguardar();
             return false;
@@ -346,8 +352,8 @@
 
         }
         else if (emailVar.indexOf("@") < 0 || // se o texto do input tem @
-            emailVar.indexOf(".") < 0 // se o texto do input tem .
-        ) {
+            emailVar.indexOf(".") < 0 ){// se o texto do input tem .
+         
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Email deve conter @ e .)";
 
@@ -406,69 +412,69 @@
     function EmailE() {
         var email_emp = email_empresa.value;
         if (email_emp.indexOf("@") > 0) { 
-            div_emailEA.innerHTML = `<span class = "have">Contem @</span>`;
+            div_emailEA.innerHTML = `<span class = "have">contém @</span>`;
         } else {
-            div_emailEA.innerHTML = `<span class = "not">Não contem @</span>`;
+            div_emailEA.innerHTML = `<span class = "not">Não contém @</span>`;
         }
         if (email_emp.indexOf(".") > 0) {
-            div_emailEP.innerHTML = `<span class = "have">Contem .</span>`;
+            div_emailEP.innerHTML = `<span class = "have">contém .</span>`;
         } else {
-            div_emailEP.innerHTML = `<span class = "not">Não contem .</span>`;
+            div_emailEP.innerHTML = `<span class = "not">Não contém .</span>`;
         }
     }
     function EmailA() {
         var email_adm = email_admin.value;
         if (email_adm.indexOf("@") > 0) { 
-            div_emailAA.innerHTML = `<span class = "have">Contem @</span>`;
+            div_emailAA.innerHTML = `<span class = "have">contém @</span>`;
         } else {
-            div_emailAA.innerHTML = `<span class = "not">Não contem @</span>`;
+            div_emailAA.innerHTML = `<span class = "not">Não contém @</span>`;
         }
         if (email_adm.indexOf(".") > 0) {
-            div_emailAP.innerHTML = `<span class = "have">Contem .</span>`;
+            div_emailAP.innerHTML = `<span class = "have">contém .</span>`;
         } else {
-            div_emailAP.innerHTML = `<span class = "not">Não contem .</span>`;
+            div_emailAP.innerHTML = `<span class = "not">Não contém .</span>`;
         }
     }
     function CNPJ() {
         var cnpj_emp = cnpj_empresa.value;
         if (cnpj_emp.indexOf("/0001") > 0) {
-            div_cnpj01.innerHTML = `<span class = "have">Contem /0001</span>`;
+            div_cnpj01.innerHTML = `<span class = "have">contém /0001</span>`;
         } else {
-            div_cnpj01.innerHTML = `<span class = "not">Não contem /0001</span>`;
+            div_cnpj01.innerHTML = `<span class = "not">Não contém /0001</span>`;
         }
-        if (cnpj_emp.length == 14) {
-            div_cnpj14.innerHTML = `<span class = "have">Contem 14 caracteres</span>`;
-        } else {            
-            div_cnpj14.innerHTML = `<span class = "not">Não contem 14 caracteres</span>`;
+        if (cnpj_emp.length == 18) {
+            div_cnpj14.innerHTML = `<span class = "have">contém 18 caracteres</span>`;
+        } else {
+            div_cnpj14.innerHTML = `<span class = "not">Não contém 18 caracteres</span>`;
         }
     }
     function CPF() {
         var cpf_adm = cpf_admin.value;
         if (cpf_adm.length == 11) {
-            div_cpf.innerHTML = `<span class = "have">Contem 11 caracteres</span>`;
+            div_cpf.innerHTML = `<span class = "have">contém 11 caracteres</span>`;
         } else {
-            div_cpf.innerHTML = `<span class = "not">Não contem 11 caracteres</span>`;
+            div_cpf.innerHTML = `<span class = "not">Não contém 11 caracteres</span>`;
         }
     }
     function Telefone() {
         var telefone_adm = telefone_admin.value;
         if (telefone_adm.length == 11) {
-            div_telefone.innerHTML = `<span class = "have">Contem 11 caracteres</span>`;
+            div_telefone.innerHTML = `<span class = "have">contém 11 caracteres</span>`;
         } else {
-            div_telefone.innerHTML = `<span class = "not">Não contem 11 caracteres</span>`;
+            div_telefone.innerHTML = `<span class = "not">Não contém 11 caracteres</span>`;
         }
     }
     function Senha() {
         var senha_adm = senha_admin.value;
         if (senha_adm.length >= 8) {
-            div_senha8.innerHTML = `<span class = "have">Contem 8 ou mais caracteres</span>`;
+            div_senha8.innerHTML = `<span class = "have">contém 8 ou mais caracteres</span>`;
         } else {
-            div_senha8.innerHTML = `<span class = "not">Não contem 8 ou mais caracteres</span>`;
+            div_senha8.innerHTML = `<span class = "not">Não contém 8 ou mais caracteres</span>`;
         }
         if (senha_adm.indexOf("#") > 0 ) {
-            div_senhaH.innerHTML = `<span class = "have">Contem #</span>`;
+            div_senhaH.innerHTML = `<span class = "have">contém #</span>`;
         } else {
-            div_senhaH.innerHTML = `<span class = "not">Nçao contem #</span>`;
+            div_senhaH.innerHTML = `<span class = "not">Não contém #</span>`;
         }
     }
     function Confirmar_Senha() {
