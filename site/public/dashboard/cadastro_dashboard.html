@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - ThermoHolic</title>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <!-- Aqui colocamos o link para o arquivo de estilização-->
+
+    <link rel="stylesheet" href="css/estilo_dashboard.css">
+    <link rel="stylesheet" href="../css/formulario.css">
+</head>
+
+<body>
+    <!-- Nosso cabeçalho -->
+    <div class="header">
+        <div class="container">
+            <img src="img/logo_thermoholic.png" alt="Logo - ThermoHolic"/>
+            <ul class="navBar">
+                <li id="painel"><a href="Painel Geral.html">Painel de Gerenciamento</a></li>
+                <li id="cadastrar_novo_usuario"><a href="cadastro_dashboard.html">Cadastrar novo usuário</a></li>
+                <li id="usuario"><span><a href="">Usuário</a></span></li>
+                <li id="painel"><a href="../index.html">Sair</a></li>
+                <li onclick="ChamaTanque()"><a id="select_tanque" href="">Ir</a></li>
+            </ul>
+            <select name="Tanques" id="tanques">
+                <option value="tanque">Tanques: Geral</option>
+                <option value="tanque1">Tanque 1</option>
+                <option value="tanque2">Tanque 2</option>
+                <option value="tanque3">Tanque 3</option>
+                <option value="tanque4">Tanque 4</option>
+            </select>
+        </div>
+    </div>
+    <div class="form">
+        <div class="containerlogin">
+            <img class="img-cadastro" src="https://www.guiadasemana.com.br/contentFiles/image/opt_w1024h1024/2018/07/FEA/57436_shutterstock-1031564416.jpg" alt=""/>
+            <div class="texto-cadastro novo-cadastro">
+                <h1>Cadastro</h1>
+                <h4>Dados Funcionarios </h4>
+                <p>Nome</p>
+                <input id="nome_funcionario" class="input_number" type="text" placeholder=" Insira o seu nome ..."/>
+                <p>E-mail Funcionario</p>
+                <input id="email_funcionario" class="input_number" type="text" placeholder=" ex: Isabel@ThermoHolic.com"/>
+                <p>CPF</p>
+                <input id="cpf_funcionario" class="input_number" type="text" placeholder=" ex: XXX. XXX. XXX-XX."/>
+                <p>Telefone</p>
+                <input id="telefone_funcionario" class="input_number" type="text" placeholder=" ex: xx xxxxx-xxxx"/>
+                <p>Senha</p>
+                <input id="senha_funcionario" class="input_number" type="password" placeholder=" *******"/>
+                <span>Deve conter no mínimo 8 caracteres.</span>
+                <p>Confimar sua senha</p>
+                <input id="confirmar_senha" class="input_number" type="text" placeholder=" *******"/>
+                <div class="texto1">
+                    <span>Já tem uma conta? <a href="login.html">Faça Login</a></span>
+                </div>
+                <button onclick="cadastrar()">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fim do Banner -->
+    <div class="rodape">
+        <span id="contato">
+            <b>Fale Conosco</b>
+            <br/>
+            ThermoHolic@outlook.com 
+            <br/>
+            ThermoHolic.com.br
+        </span>
+        <div class="icons">
+            <a href="https://www.linkedin.com"><img src="../img/linkedin.png" alt="Linkedin"/></a>
+            <a href="https://www.facebook.com"><img src="../img/facebook.png" alt="Facebook"/></a>
+            <a href="https://www.instagram.com"><img src="../img/instagram.png" alt="Instagram"/></a>
+            <a href="https://www.whatsapp.com"><img src="../img/whatsapp.png" alt="WhatsApp"/></a>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function cadastrar() {
+        var email = email_funcionario.value;
+        var nome = nome_funcionario.value;
+        var CPF = cpf_funcionario.value;
+        var telefone = telefone_funcionario.value;
+        var senha = senha_funcionario.value;
+        var confirmSenha = confirmar_senha.value;
+
+        if (email.indexOf("@") < 0 || email.indexOf(".") < 0) {
+            alert('Insira um e-mail válido!');
+        } else if (cpf.indexOf("-") < 0 || cpf.length != 12) {
+            alert('Insira um CPF válido!');
+        } else if (telefone.length != 11) {
+            alert('Insira um telefone válido!');
+        } else if (senha.length < 8) {
+            alert('Insira uma senha válida!');
+        } else if (confirmSenha != senha) {
+            alert('Confirme sua senha novamente.');
+        } else {
+            alert('Cadastrado com sucesso!')
+        }
+    }
+    function ChamaTanque() {
+        var pagina = tanques.value;
+        if (pagina == "tanque") {
+            select_tanque.href = "Painel Geral.html";
+        } else if (pagina == "tanque1") {
+            select_tanque.href = "Tanques/tanque1.html";
+        } else if (pagina == "tanque2") {
+            select_tanque.href = "Tanques/tanque2.html";
+        } else if (pagina == "tanque3") {
+            select_tanque.href = "Tanques/tanque3.html";
+        } else if (pagina == "tanque4") {
+            select_tanque.href = "Tanques/tanque4.html";
+        }
+    }
+</script>
