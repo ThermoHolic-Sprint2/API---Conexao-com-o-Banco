@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+body { /*corpo da página*/
+    background-color: #ffffff;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.header { /*cabeçalho*/
+    background-color: #ffbf00;
+    margin: 0;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    display: flex;
+    font-size: 10px;
+
+}
+
+.header img { /*imagem do cabeçalho (logo)*/
+    width: 200px;
+    height: 50px;
+    margin-top: 25px;
+}
+
+select {/*select dos tanques*/
+    display: flex;
+    background-color: #FFA700;
+    color: #ffffff;
+    width: 100px;
+    height: 50px;
+    border-style: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    font-family: cursive;
+    margin: auto;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    flex-direction: row;
+    margin-left: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+}
+
+.log_e_cadas {
+    display: flex;
+}
+
+.titulo {
+    color: #000000;
+    width: fit-content;
+}
+
+.navBar {
+    display: flex;
+    padding: 0;
+    list-style: none;
+    align-items: center;
+    height: 50px;
+    margin-top: 25px;
+    font-weight: 800;
+    font-size: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a {
+    display: flex;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 800;
+    margin-left: 50px;
+}
+
+select {
+    display: flex;
+    align-items: center;
+}
+
+/* FIM DO HEADER */
+
+/* COMEÇO LATERAL */
+.lateral {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    width: 200px;
+    height: 1000px;
+}
+
+.lateralBar {
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.pgeral {
+    color: #ffbf00;
+    font-weight: 500;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.box1 {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    border: 1px solid rgba(0, 0, 0, 0.401);
+    height: 130px;
+    width: 190px;
+    margin-top: 20px;
+}
+
+.tempM {
+    font-size: 100%;
+    font-weight: 800;
+}
+
+.axl {
+    font-size: small;
+}
+
+.maxx {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-weight: 700;
+    font-size: 30px;
+    margin-top: 10%;
+    align-items: center;
+}
+
+.maxAle {
+    color: #ffbf00;
+}
+
+.maxLager {
+    color: #AD8442;
+}
+
+.uldiasM {
+    margin-top: auto;
+}
+
+.uldiasMax {
+    font-size: 10px;
+}
+
+.box2 {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    border: 1px solid rgba(0, 0, 0, 0.401);
+    height: 130px;
+    width: 190px;
+    margin-top: 20px;
+}
+
+.tempMin {
+    font-size: 100%;
+    font-weight: 800;
+}
+
+.Aaxl {
+    font-size: small;
+}
+
+.minn {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-weight: 700;
+    font-size: 30px;
+    margin-top: 10%;
+    align-items: center;
+}
+
+.minAle {
+    color: #ffbf00;
+}
+
+.minLager {
+    color: #AD8442;
+}
+
+.uldiasM {
+    margin-top: auto;
+}
+
+.uldiasMax {
+    font-size: 10px;
+}
+
+.box3 {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    border: 1px solid rgba(0, 0, 0, 0.401);
+    height: 100px;
+    width: 190px;
+    margin-top: 20px;
+    font-weight: 600;
+    justify-content: space-around;
+}
+
+.qtdSalas {
+    font-size: 30px;
+    margin: auto;
+    color: #AD8442;
+}
+
+.box4 {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    border: 1px solid rgba(0, 0, 0, 0.401);
+    height: 330px;
+    width: 190px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.statusSensores {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* FIM LATERAL */
+
+/* COMEÇO DOS GRAFICOS */
+
+.back {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.graficos {
+    display: flex;
+    justify-content: center;
+}
+
+.graph {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.linha {
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+}
+
+canvas {
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.401);
+    margin-left: 20px;
+    margin: 20px;
+}
+
+#grafico_rosca {
+    height: 10px;
+    border: none;
+}
+
+/* FIM DOS GRAFICOS */
+
+/* KPI */
+
+.lateralDireita {
+    display: flex;
+    margin-top: 100px;
+}
+
+.alertatexto {
+    font-size: 100%;
+    font-weight: 700;
+}
+
+.alert_text {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-weight: 700;
+    font-size: 30px;
+    margin-top: 30%;
+    align-items: center;
+    color: #AD8442;
+}
+
+.alerta_temperatura {
+    font-size: 100%;
+    font-weight: 700;
+}
+
+.alertas {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-weight: 700;
+    font-size: 30px;
+    margin-top: 30%;
+    align-items: center;
+    color: #AD8442;
+}
+
+.uldias_alertas {
+    margin-top: auto;
+    font-size: small;
+}
+
+.lagercor{
+    color: #ffbf00;
+}
