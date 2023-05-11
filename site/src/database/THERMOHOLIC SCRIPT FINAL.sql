@@ -38,7 +38,7 @@ DESC Empresa;
 ---------------------------------------------------------------------------------------------------------------------------------------
 -- Criando a tabela usuário 
 CREATE TABLE Usuario(
-IdUsuario INT, -- ID do Usuário
+IdUsuario INT auto_increment, -- ID do Usuário
 Nome VARCHAR(50) NOT NULL, -- Nome do usuário
 Email VARCHAR (100), -- Email do usuário
 Celular CHAR (11), -- Celular do usuário
@@ -54,12 +54,12 @@ fkEmpresaU int, -- chave estrangeira com a table empresa
 -- OBS: Quando temos a chave primária composta, podemos repetir os números do id pois eles vão se diferenciar de acordo com a empresa que eles pertencerem
 -- Inserindo dados na tabela usuário
 INSERT INTO Usuario VALUES
-(1, 'Gyulia Martins Piqueira', 'gyulia.piqueira@sptech.school', '11975536244', '075.675.234-00', 'Gyulia06', 'Administrador', 1),
-(1, 'Natalia Russo', 'natalia.russo@sptech.school', '11913653449', '234.567.235-09', 'Nat029', 'Administrador', 2),
-(1, 'Isabel Bermudes', 'isabel.bermudes@sptech.school', '11944556244', '607.845.623-60', 'Isabel12', 'Administrador', 3),
-(1, 'Alexandre Murata', 'alexandre.murata@sptech.school', '11975533333', '142.456.834-90', 'Alex1', 'Administrador', 4),
-(2, 'Luiz Adorno', 'luiz.adorno@sptech.school', '11975534455', '000.023.012-91', 'Luiz0901', 'Funcionário', 4),
-(2, 'Brudney Ramos', 'brudney.ramosjr@sptech.school', '11975532366', '923.534.890-96', 'Brudney2', 'Funcionário', 2);
+(null, 'Gyulia Martins Piqueira', 'gyulia.piqueira@sptech.school', '11975536244', '075.675.234-00', 'Gyulia06', 'Administrador', 1),
+(null, 'Natalia Russo', 'natalia.russo@sptech.school', '11913653449', '234.567.235-09', 'Nat029', 'Administrador', 2),
+(null, 'Isabel Bermudes', 'isabel.bermudes@sptech.school', '11944556244', '607.845.623-60', 'Isabel12', 'Administrador', 3),
+(null, 'Alexandre Murata', 'alexandre.murata@sptech.school', '11975533333', '142.456.834-90', 'Alex1', 'Administrador', 4),
+(null, 'Luiz Adorno', 'luiz.adorno@sptech.school', '11975534455', '000.023.012-91', 'Luiz0901', 'Funcionário', 4),
+(null, 'Brudney Ramos', 'brudney.ramosjr@sptech.school', '11975532366', '923.534.890-96', 'Brudney2', 'Funcionário', 2);
 
 
 -- SELECTS:
