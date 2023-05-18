@@ -1,0 +1,158 @@
+/*importação de fonte do google fontes com varias especuras diferentes*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+body {
+    /*configurações do corpo inteiro das paginas*/
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif; /*fonte importada*/
+    margin: 0; /*tirar as margens colocadas automaticamente*/
+}
+
+.container {
+    /*configuração da area de conteudo*/
+    display: flex;
+    width: 90%;
+    margin: auto; /*quando o display é flex, a margem automatica deixa os elementos centralizados*/
+    padding: 0%;
+}
+
+/* Header*/
+.header {
+    /*menu*/
+    position: fixed; /*fixa o menu na a parte superior da tela, assim quando rolar a página ele ainda fica visivel*/
+    top: 0; /*define que vai ser fixo na parte superior*/
+    width: 98%;
+    height: 100px;
+    background-color: white;
+    border-radius: 20px; /*arredondamento da borda*/
+    display: flex;
+    justify-content: space-between; /*alinhamento horizontal*/
+    align-items: center; /*alinhamento vertical*/
+    margin: 20px; /*margem do card */
+    box-shadow: 4px 4px 4px 0px #d0b154; /*sombreamento do menu*/
+
+}
+.header .container {
+    /*configuração do conteudo do menu*/
+    justify-content:  space-between;
+    align-items: center;
+}
+.logo {
+    width: 300px; /*tamanho da imagem do logo*/
+}
+.navbar {
+    /*configuração da lista com links no menu*/
+    width: 700px;
+    display: flex;
+    list-style: none; /*tira a estilização automatica da lista html */
+    justify-content:space-between;
+    word-spacing: 3%;
+    margin: 0%;
+}
+.navbar li a {
+     /*estilização dos links*/
+    color: black;
+    text-decoration: none; /*tira a estilização automatica do link (a href) do html*/
+    font-size: 18px; /*tamanho da fonte*/
+    font-weight: 600; /*grossura da fonte*/
+    padding-left: 0%;
+    margin-left: 0%;
+}
+.navbar li a:hover {
+    /*'animação' dos links, quando passar o mouse troca a cor em 0.5 segundos*/
+    color: #FFC107;
+    transition: 0.5s;
+
+}
+
+/*Banner*/
+.banner {
+    /*configuração da banner inicial do site*/
+    margin-top: 170px;
+}
+.banner .container {
+    /*conteudo do banner*/
+    justify-content: space-around;
+    margin: 5%;
+}
+.texto-banner {
+    /*bloco de texto do banner*/
+    color: white;
+    width: 40%; /*tamanho*/
+    margin-top: 7%;
+
+}
+.texto-banner p {
+    /*configuração apenas da tag p do bloco de texto do banner*/
+    font-size: 30px;
+    color: #3B280A;
+}
+.texto-banner h1 {
+    /*configuração apenas da tag h1 do bloco de texto do banner*/
+    font-size: 40px;
+    color: #3B280A;
+}
+.texto-banner p span {
+    /*configuração apenas da tag span do bloco de texto do banner*/
+    font-weight: 700; 
+    color: #FFA700;
+}
+.foto-banner {
+    /*configuração da imagem do banner*/
+    width: 570px;
+    margin: 30px;
+    margin-top: 7%;
+}
+.botao-bannerc {
+    /*configuração do botão de fale conosco do banner*/
+    background-color: #FFA700;
+    font-size: 20px;
+    border: none; /*tira a estilização automatica do html*/
+    border-radius: 10px; 
+    padding: 10px 60px; /*espacamento dentro do botão*/
+    width: 300px;
+    height: 50px;
+
+
+}
+.botao-bannerc:hover {
+     /*'animação' do botão quando o mouse passar*/
+    background-color: #ffa60063;
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2); /*sombreamento: top right bottom left cor*/
+    transition: background-color 0.2s; /*tempo da transição da animação*/
+}
+.botao-bannerc a {
+    /*configuração do link do botão*/ 
+    color: rgb(255, 255, 255);
+    text-decoration: none; /*tira a estilização automatica do link do html*/
+    font-weight: bold;
+}
+
+/*rodape*/
+.rodape {
+    /*configuração da area de rodape*/
+    /* bottom: 0;
+    left: 0;
+    right: 0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    background-color: #3B280A;
+    height: 250px;
+    color: white;
+    line-height: 48px; /*espacamento vertical entre as linhas*/
+    font-size: 17px;
+}
+
+.rodape #contato {
+    /*elemento contato (emails)*/
+    margin-left: 50px;
+}
+.rodape .icons img {
+    /*configuração das imagens de contato do rodape*/
+    margin: 10px 0px 20px 50px; /* ordem: top right bottom left*/
+    width: 30px;
+    height: 30px;
+}
