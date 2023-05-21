@@ -117,9 +117,9 @@
         var emailVar = email_admin.value;
         var tellVar = telefone_admin.value;
         var cpfVar = cpf_admin.value;
-        var senhaVar = senha_admin.value;
         var empVar = Number(emp_admin.value);
-        var confirmacaoSenhaVar = confirmar_senha.value;
+        var senhaVar = btoa(senha_admin.value);
+        var confirmacaoSenhaVar = btoa(confirmar_senha.value);
 
         var cpf = cpfVar[0] + cpfVar[1] + cpfVar[2] + cpfVar[3] + cpfVar[4] + cpfVar[5] + cpfVar[6] + cpfVar[7] + cpfVar[8]
         var multiplicador = 0
