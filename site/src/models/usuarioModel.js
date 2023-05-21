@@ -12,8 +12,14 @@ function listar() {
 function entrar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
-        SELECT * FROM Usuario WHERE Email = '${email}' AND Senha = '${senha}';
+    SELECT CASE 
+        WHEN fun_valida_usuario('${email}','${senha}') = 1 
+        THEN 'Login realizado com sucesso'
+        ELSE 'Login ou senha incorreta' END Validação;
     `;
+    // var instrucao = `
+    //     SELECT * FROM Usuario WHERE Email = '${email}' AND Senha = '${senha}';
+    // `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
@@ -43,7 +49,7 @@ function cadastrarUsuario(nome, email, tell, cpf, senha, codEmp) {
     // get_idEmpresa(idEmpresa);
 
     var instrucao = `
-        INSERT INTO Usuario (Nome, Email, Celular, CPF, Senha, TipoUsuario, fkEmpresaU) VALUES ('${nome}', '${email}', '${tell}', '${cpf}', '${senha}', 'Funcionário', ${codEmp});
+        INSERT INTO Usuario (Nome, Email, Celular, CPF, Senha, TipoUsuario, fkEmpresaU) VALUES ('${nome}', '${email}', '${tell}', '${cpf}', sha2('${senha}', 256), 'Funcionário', ${codEmp});
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
