@@ -86,9 +86,8 @@
             }
             else {
                 setInterval(sumirMensagem, 5000)
-            }
-    
-            console.log("FORM LOGIN: ", emailVar);
+
+                console.log("FORM LOGIN: ", emailVar);
             console.log("FORM SENHA: ", senhaVar);
     
             fetch("/usuarios/autenticar", {
@@ -115,7 +114,6 @@
                         sessionStorage.ID_USUARIO = json.id;
     
                         setTimeout(function () {
-                            alert('teste')
                             window.location = "./dashboard/PainelGeral.html";
                         }, 1000); // apenas para exibir o loading
     
@@ -134,6 +132,9 @@
             }).catch(function (erro) {
                 console.log(erro);
             })
+    
+            return false;
+            }
     
             return false;
         }
