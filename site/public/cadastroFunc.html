@@ -157,7 +157,9 @@
             }
 
             modulo += (digito % 11).toString()
-
+            if (modulo[1] == 1 && modulo[2] == 0) {
+                modulo = modulo[0] + "0"
+            }
             // if (modulo[1] == 10) {// Caso o módulo det 10, ficará apenas o 0
             //     modulo[1] = 0;
             // }
@@ -185,7 +187,7 @@
         } else if (senhaVar != confirmacaoSenhaVar) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Senhas diferentes)";
-            console.log('senhaconfdasdas')
+            alert('testesennha igual')
 
             finalizarAguardar();
             return false;
@@ -210,11 +212,8 @@
             senhaVar.indexOf("#") < 0) { // se o texto do input tem # (caracter especial)
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Senha precisa ter 8 ou mais caracteres, sendo um deles #)";
-
+            alert('testesenha')
             finalizarAguardar();
-            return false;
-            console.log('senha')
-
         } else if (emailVar.indexOf("@") < 0 || // se o texto do input tem @
             emailVar.indexOf(".") < 0 ){// se o texto do input tem .
          
