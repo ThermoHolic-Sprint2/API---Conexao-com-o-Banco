@@ -48,25 +48,6 @@ INSERT INTO Usuario VALUES
 (null, 'Alexandre Murata', 'alexandre.murata@sptech.school', '11975533333', '142.456.834-90', 'Alex1', 'Administrador', 4),
 (null, 'Luiz Adorno', 'luiz.adorno@sptech.school', '11975534455', '000.023.012-91', 'Luiz0901', 'Funcionário', 4),
 (null, 'Brudney Ramos', 'brudney.ramosjr@sptech.school', '11975532366', '923.534.890-96', sha2('Brudney2', 256), 'Funcionário', 2);
-
-DELIMITER $
- DROP FUNCTION IF EXISTS fun_valida_usuario;
- CREATE FUNCTION fun_valida_usuario
-	(p_login VARCHAR(100), p_senha VARCHAR(100) )
-RETURNS INT(1)
-DETERMINISTIC
- BEGIN
- DECLARE l_ret INT(1) DEFAULT 0;
-     SET l_ret = IFNULL((SELECT DISTINCT 1 FROM Usuario WHERE Email = p_login
-                       AND Senha = SHA2(p_senha,256)),0);
- RETURN l_ret;
- END$
- DELIMITER ;
- 
-SELECT CASE 
-	WHEN fun_valida_usuario('brudney.ramosjr@sptech.school','Brudney2') = 1 
-    THEN 'Login realizado com sucesso'
-    ELSE 'Login ou senha incorreta' END Validação;
     
 ----------------------------------------------------------------------------------------------------------------------------------------
 -- Criando a tabela sensor 
@@ -89,7 +70,7 @@ INSERT INTO Sensor VALUES
 ----------------------------------------------------------------------------------------------------------------------------------------
 -- Criando a tabela leitura 
 CREATE TABLE if not exists Leitura (
-IdLeitura INT, -- Id da Leitura para identificar o registro da temperatura
+IdLeitura INT auto_increment, -- Id da Leitura para identificar o registro da temperatura
 TemperaturaTanque FLOAT, -- Registro da temperatura
 DtAtual DATETIME DEFAULT current_timestamp, -- Data e horário do registro
 fkSensorL INT, -- Chave estrangeira com a table sensor
@@ -128,3 +109,27 @@ INSERT INTO Tanque VALUES
 	(1, 'Tanque B' ,'Pilsen', '10', '12', 2, 1, 4), -- LAGER
 	(1, 'Tanque C', 'Stout', '18', '20', 3, 4, 2), -- ALE
 	(1, 'Tanque D','Schwarzbier', '10', '12', 1, 3, 1); -- LAGER
+    
+    
+DELIMITER $
+ DROP FUNCTION IF EXISTS fun_valida_usuario;
+ CREATE FUNCTION fun_valida_usuario
+	(p_login VARCHAR(100), p_senha VARCHAR(100) )
+RETURNS INT(1)
+DETERMINISTIC
+ BEGIN
+ DECLARE l_ret INT(1) DEFAULT 0;
+     SET l_ret = IFNULL((SELECT DISTINCT 1 FROM Usuario WHERE Email = p_login
+                       AND Senha = SHA2(p_senha,256)),0);
+ RETURN l_ret;
+ END$
+ DELIMITER ;
+
+
+SELECT CASE 
+        WHEN fun_valida_usuario('yasmin@sptech.com','sha2(7f4b70ee05a782533391e37b1c58900490fb8dedd8a96b8509d9f0ab4d44adcc,256)') = 1 
+        THEN 'Login realizado com sucesso'
+        ELSE 'Login ou senha incorreta' END Validação;
+
+SELECT * FROM Usuario;
+select * from Leitura;
