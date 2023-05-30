@@ -30,7 +30,7 @@ body {
     justify-content: space-between; /*alinhamento horizontal*/
     align-items: center; /*alinhamento vertical*/
     margin: 20px; /*margem do card */
-    box-shadow: 4px 4px 4px 0px #d0b154; /*sombreamento do menu*/
+    box-shadow: 0 16px 32px 0 #d0b154aa /*sombreamento do menu*/
 
 }
 .header .container {
