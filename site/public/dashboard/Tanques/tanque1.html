@@ -12,25 +12,86 @@
 <body>
     <div class="header">
         <div class="container">
-            <img src="../img/logo_thermoholic.png" alt="Logo - ThermoHolic"/>
+            <img src="../img/logo_thermoholic.png" alt="Logo - ThermoHolic" />
             <ul class="navBar">
-                <li id="painel"><a href="../PainelGeral.html">Painel de Geral</a></li>
-                <li id="cadastrar_novo_usuario"><a href="../cadastro_dashboard.html">Cadastrar Novo Usuário</a></li>
-                <li id="usuario"><span><a href="">Usuário</a></span></li>
-                <li id="painel"><a href="../../index.html">Sair</a></li>
+                <div class="pg">
+                    <li id="painel"><a href="../Painel Geral.html">Painel Geral</a></li>
+                </div>
+                <select name="Tanques" id="tanques">
+                    <option value="tanque">Tanques: Geral</option>
+                    <option value="tanque1">Tanque 1</option>
+                    <option value="tanque2">Tanque 2</option>
+                    <option value="tanque3">Tanque 3</option>
+                    <option value="tanque4">Tanque 4</option>
+                </select>
                 <li onclick="ChamaTanque()"><a id="select_tanque" href="">Ir</a></li>
+                <li id="painel"><a href="../index.html">Sair</a></li>
             </ul>
-            <select name="Tanques" id="tanques">
-                <option value="tanque">Tanques: Geral</option>
-                <option value="tanque1">Tanque 1</option>
-                <option value="tanque2">Tanque 2</option>
-                <option value="tanque3">Tanque 3</option>
-                <option value="tanque4">Tanque 4</option>
-            </select>
         </div>
     </div>
     <div class="back">
-        <div class="lateral">
+        <div class="text1">
+            <span>Tanque 1</span>
+        </div>
+        <div class="container111">
+            <div class="box111">
+                <span>Temperatura Máxima</span>
+                <div class="textinho">
+                    <span class="Aaxl">Lager</span>
+                </div>
+                <div class="maxx">
+                    <span class="maxLager" id="lagerMax">0</span>
+                </div>
+            </div>
+            <div class="box111">
+                <span>Status</span>
+                <div class="estado">
+                    <span class="alert_text" id="alerta_texto">Carregando...</span>
+                </div>
+            </div>
+            <div class="box111">
+                <span>Temperatura Mínima</span>
+                <div class="textinho">
+                    <span class="Aaxl">Lager</span>
+                </div>
+                <div class="minn">
+                    <span class="minLager" id="lagerMin">100</span>
+                </div>
+            </div>
+        </div>
+        <div class="graficos">
+            <section class="graph">
+                <div class="linha">
+                    <canvas id="lm35Temperatura1"></canvas>
+                    <div class="grafico_lateral_direito">
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="container111">
+            <div class="box111">
+                <span>Temperatura Atual</span>
+                <div class="maxx">
+                    <span class="lagerMax" id="atual"></span>
+                </div>
+            </div>
+            <div class="box111">
+                <span>Tipo de fermento</span>
+                <div class="estado">
+                    <span class="tipo">Lager</span>
+                </div>
+            </div>
+            <div class="box111">
+                <span>Sala de Fermentação</span>
+                <div class="textinho">
+                    <span class="Aaxl">Lager</span>
+                </div>
+                <div class="minn">
+                    <span class="minLager">1</span>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="lateral">
             <div class="containerlateral">
                 <div class="lateralBar">
                     <div class="pgeral">
@@ -62,17 +123,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="graficos">
-            <section class="graph">
-                <div class="linha">
-                    <canvas id="lm35Temperatura1"></canvas>
-                    <div class="grafico_lateral_direito">
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="lateralDireita">
+        </div> -->
+        <!-- <div class="lateralDireita">
             <div class="containerlateralDireita">
                 <div class="box1">
                     <div class="alertatexto">Status</div>
@@ -87,6 +139,22 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+        <div class="rodape"> <!-- Área do rodape-->
+            <span id="contato">
+                <b>Fale Conosco</b>
+                <br>
+                ThermoHolic@outlook.com
+                <br>
+                ThermoHolic.com.br
+            </span>
+            <div class="icons">
+                <a href="https://www.linkedin.com"><img src="../img/linkedin.png" alt="Linkedin"></a>
+                <a href="https://www.facebook.com"><img src="../img/facebook.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com"><img src="../img/instagram.png" alt="Instagram"></a>
+                <a href="https://www.whatsapp.com"><img src="../img/whatsapp.png" alt="WhatsApp"></a>
+            </div>
+    
         </div>
     <script>
 
@@ -166,10 +234,11 @@
         function Calcula_TempMaxMin() {
             var teste3 = Number(lagerMin.innerHTML);
             var teste4 = Number(lagerMax.innerHTML);
+            atual.innerHTML = lager1.toFixed(2);
             if (lager1 < teste3) {
-                lagerMin.innerHTML = lager1;
+                lagerMin.innerHTML = lager1.toFixed(2);
             } else if (lager1 > teste4) {
-                lagerMax.innerHTML = lager1; 
+                lagerMax.innerHTML = lager1.toFixed(2); 
             }
             if (lager1 < 0 || lager1 > 15) {
                 alerta_texto.innerHTML = "Crítico";
@@ -189,6 +258,7 @@
                 alerta_texto.innerHTML = "Seguro";
                 estado_alertas.innerHTML = "Temperatura OK";
             }
+
         }
         setInterval(() => {
             obterDados(lm35Temperatura1);

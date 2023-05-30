@@ -2,7 +2,7 @@
 <html>
 <head>
     <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon"> <!--Imagem na aba do navegador-->
-    <title>Tanque 3</title>
+    <title>Tanque 1</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
@@ -12,25 +12,86 @@
 <body>
     <div class="header">
         <div class="container">
-            <img src="../img/logo_thermoholic.png" alt="Logo - ThermoHolic"/>
+            <img src="../img/logo_thermoholic.png" alt="Logo - ThermoHolic" />
             <ul class="navBar">
-                <li id="painel"><a href="../PainelGeral.html">Painel de Gerenciamento</a></li>
-                <li id="cadastrar_novo_usuario"><a href="../cadastro_dashboard.html">Cadastrar Novo Usuário</a></li>
-                <li id="usuario"><span><a href="">Usuário</a></span></li>
-                <li id="painel"><a href="../../index.html">Sair</a></li>
+                <div class="pg">
+                    <li id="painel"><a href="../Painel Geral.html">Painel Geral</a></li>
+                </div>
+                <select name="Tanques" id="tanques">
+                    <option value="tanque">Tanques: Geral</option>
+                    <option value="tanque1">Tanque 1</option>
+                    <option value="tanque2">Tanque 2</option>
+                    <option value="tanque3">Tanque 3</option>
+                    <option value="tanque4">Tanque 4</option>
+                </select>
                 <li onclick="ChamaTanque()"><a id="select_tanque" href="">Ir</a></li>
+                <li id="painel"><a href="../index.html">Sair</a></li>
             </ul>
-            <select name="Tanques" id="tanques">
-                <option value="tanque">Tanques: Geral</option>
-                <option value="tanque1">Tanque 1</option>
-                <option value="tanque2">Tanque 2</option>
-                <option value="tanque3">Tanque 3</option>
-                <option value="tanque4">Tanque 4</option>
-            </select>
         </div>
     </div>
     <div class="back">
-        <div class="lateral">
+        <div class="text1">
+            <span>Tanque 3</span>
+        </div>
+        <div class="container111">
+            <div class="box111">
+                <span>Temperatura Máxima</span>
+                <div class="textinho">
+                    <span class="Aaxl">Lager</span>
+                </div>
+                <div class="maxx">
+                    <span class="maxLager" id="lagerMax">0</span>
+                </div>
+            </div>
+            <div class="box111">
+                <span>Status</span>
+                <div class="estado">
+                    <span class="alert_text" id="alerta_texto">Carregando...</span>
+                </div>
+            </div>
+            <div class="box111">
+                <span>Temperatura Mínima</span>
+                <div class="textinho">
+                    <span class="Aaxl">Lager</span>
+                </div>
+                <div class="minn">
+                    <span class="minLager" id="lagerMin">100</span>
+                </div>
+            </div>
+        </div>
+        <div class="graficos">
+            <section class="graph">
+                <div class="linha">
+                    <canvas id="lm35Temperatura1"></canvas>
+                    <div class="grafico_lateral_direito">
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="container111">
+            <div class="box111">
+                <span>Temperatura Atual</span>
+                <div class="maxx">
+                    <span class="lagerMax" id="atual"></span>
+                </div>
+            </div>
+            <div class="box111">
+                <span>Tipo de fermento</span>
+                <div class="estado">
+                    <span class="tipo">Lager</span>
+                </div>
+            </div>
+            <div class="box111">
+                <span>Sala de Fermentação</span>
+                <div class="textinho">
+                    <span class="Aaxl">Lager</span>
+                </div>
+                <div class="minn">
+                    <span class="minLager">3</span>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="lateral">
             <div class="containerlateral">
                 <div class="lateralBar">
                     <div class="pgeral">
@@ -58,21 +119,12 @@
                     </div>
                     <div class="box3">
                         <div class="salas">Salas de Fermentação</div>
-                        <span class="qtdSalas">3</span>
+                        <span class="qtdSalas">1</span>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="graficos">
-            <section class="graph">
-                <div class="linha">
-                    <canvas id="lm35Temperatura3"></canvas>
-                    <div class="grafico_lateral_direito">
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="lateralDireita">
+        </div> -->
+        <!-- <div class="lateralDireita">
             <div class="containerlateralDireita">
                 <div class="box1">
                     <div class="alertatexto">Status</div>
@@ -87,22 +139,38 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+        <div class="rodape"> <!-- Área do rodape-->
+            <span id="contato">
+                <b>Fale Conosco</b>
+                <br>
+                ThermoHolic@outlook.com
+                <br>
+                ThermoHolic.com.br
+            </span>
+            <div class="icons">
+                <a href="https://www.linkedin.com"><img src="../img/linkedin.png" alt="Linkedin"></a>
+                <a href="https://www.facebook.com"><img src="../img/facebook.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com"><img src="../img/instagram.png" alt="Instagram"></a>
+                <a href="https://www.whatsapp.com"><img src="../img/whatsapp.png" alt="WhatsApp"></a>
+            </div>
+    
         </div>
     <script>
 
-        /* lm35Temperatura3 */
+        /* lm35Temperatura1 */
 
-        var contextoLm35Temperatura3 = document.getElementById('lm35Temperatura3').getContext('2d');
-        var lm35Temperatura3 = new Chart(
-            contextoLm35Temperatura3,
+        var contextoLm35Temperatura1 = document.getElementById('lm35Temperatura1').getContext('2d');
+        var lm35Temperatura1 = new Chart(
+            contextoLm35Temperatura1,
             {
                 type: 'line',
                 data: {
                     datasets: [{
-                        label: 'Tanque 3- Schwarzbier',
+                        label: 'Tanque 1- Pilsen',
                         type: 'line',
                         borderColor: ['#AD8442'],
-                        backgroundColor: ['#AD8442']
+                        backgroundColor: ['#AD8442'],
                     }]
                 },
                 options: {
@@ -130,55 +198,58 @@
             }
         );
 
-        var paginacao3 = {};
-        var tempo3 = {};
-        function obterDados3(grafico3) {
+        var paginacao = {};
+        var tempo = {};
+
+        var lager1 = 0;
+
+        function obterDados(grafico) {
             var http = new XMLHttpRequest();
             http.open('GET', 'http://localhost:3000/sensores/' + 'lm35/temperatura', false);
             http.send(null);
-            var valores2 = JSON.parse(http.responseText);
-            if (paginacao3['lm35/temperatura'] == null) {
-                paginacao3['lm35/temperatura'] = 0;
+            var valores = JSON.parse(http.responseText);
+            if (paginacao['lm35/temperatura'] == null) {
+                paginacao['lm35/temperatura'] = 0;
             }
-            if (tempo3['lm35/temperatura'] == null) {
-                tempo3['lm35/temperatura'] = 0;
+            if (tempo['lm35/temperatura'] == null) {
+                tempo['lm35/temperatura'] = 0;
             }
             // Exibir à partir do último elemento exibido anteriormente
-            var ultimaPaginacao = paginacao3['lm35/temperatura'];
-            paginacao3['lm35/temperatura'] = valores2.length;
-            var valores2 = valores2.slice(ultimaPaginacao);
-            valores2.forEach((valor3) => {
+            var ultimaPaginacao = paginacao['lm35/temperatura'];
+            paginacao['lm35/temperatura'] = valores.length;
+            var valores = valores.slice(ultimaPaginacao);
+            valores.forEach((valor1) => {
                 //Máximo de 60 itens exibidos no gráfico
-                if (grafico3.data.labels.length == 10 && grafico3.data.datasets[0].data.length == 10) {
-                    grafico3.data.labels.shift();
-                    grafico3.data.datasets[0].data.shift();
+                if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+                    grafico.data.labels.shift();
+                    grafico.data.datasets[0].data.shift();
                 }
 
-                grafico3.data.labels.push(tempo3['lm35/temperatura']++);
-                grafico3.data.datasets[0].data.push(parseFloat(valor3 - 10));
-                grafico3.update();
-                lager3 = valor3 - 10;
+                grafico.data.labels.push(tempo['lm35/temperatura']++);
+                grafico.data.datasets[0].data.push(parseFloat(valor1 - 14));
+                grafico.update();
+                lager1 = valor1 - 14;
             })
         }
-
         function Calcula_TempMaxMin() {
             var teste3 = Number(lagerMin.innerHTML);
             var teste4 = Number(lagerMax.innerHTML);
-            if (lager3 < teste3) {
-                lagerMin.innerHTML = lager3;
-            } else if (lager3 > teste4) {
-                lagerMax.innerHTML = lager3; 
+            atual.innerHTML = lager1.toFixed(2);
+            if (lager1 < teste3) {
+                lagerMin.innerHTML = lager1.toFixed(2);
+            } else if (lager1 > teste4) {
+                lagerMax.innerHTML = lager1.toFixed(2); 
             }
-            if (lager3 < 0 || lager3 > 15) {
+            if (lager1 < 0 || lager1 > 15) {
                 alerta_texto.innerHTML = "Crítico";
-                if (lager3 > 15) {
+                if (lager1 > 15) {
                     estado_alertas.innerHTML = "Fermento Morto";
                 } else {
                     estado_alertas.innerHTML = "Congelamento";
                 }
-            } else if (lager3 >= 0 && lager3 < 10 || lager3 > 12 && lager3 <= 15) {
+            } else if (lager1 >= 0 && lager1 < 10 || lager1 > 12 && lager1 <= 15) {
                 alerta_texto.innerHTML = "Risco";
-                if (lager3 > 12) {
+                if (lager1 > 12) {
                     estado_alertas.innerHTML = "Risco de Prejuízo";
                 } else {
                     estado_alertas.innerHTML = "Fermento Inativo";
@@ -187,9 +258,10 @@
                 alerta_texto.innerHTML = "Seguro";
                 estado_alertas.innerHTML = "Temperatura OK";
             }
+
         }
         setInterval(() => {
-            obterDados3(lm35Temperatura3);
+            obterDados(lm35Temperatura1);
             Calcula_TempMaxMin();
         }, 1000);
         function ChamaTanque(){

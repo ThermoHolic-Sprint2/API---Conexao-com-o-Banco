@@ -208,8 +208,8 @@
             return false;
             console.log('telefone')
 
-        } else if (senhaVar.length < 8 ||  // se o texto do input tem mais de 8 caracteres 
-            senhaVar.indexOf("#") < 0) { // se o texto do input tem # (caracter especial)
+        } else if (senhaVar.length < 8 // se o texto do input tem mais de 8 caracteres 
+            ) { // se o texto do input tem # (caracter especial)
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Senha precisa ter 8 ou mais caracteres, sendo um deles #)";
             alert('testesenha')

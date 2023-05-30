@@ -16,23 +16,170 @@
         <div class="container">
             <img src="img/logo_thermoholic.png" alt="Logo - ThermoHolic" />
             <ul class="navBar">
-                <li id="painel"><a href="Painel Geral.html">Painel de Gerenciamento</a></li>
-                <li id="cadastrar_novo_usuario"><a href="cadastro_dashboard.html">Cadastrar novo usuário</a></li>
-                <li id="usuario"><span><a href="">Usuário</a></span></li>
-                <li id="painel"><a href="../index.html">Sair</a></li>
+                <div class="pg">
+                    <li id="painel"><a href="Painel Geral.html">Painel Geral</a></li>
+                </div>
+                <select name="Tanques" id="tanques">
+                    <option value="tanque">Tanques: Geral</option>
+                    <option value="tanque1">Tanque 1</option>
+                    <option value="tanque2">Tanque 2</option>
+                    <option value="tanque3">Tanque 3</option>
+                    <option value="tanque4">Tanque 4</option>
+                </select>
                 <li onclick="ChamaTanque()"><a id="select_tanque" href="">Ir</a></li>
+                <li id="painel"><a href="../index.html">Sair</a></li>
             </ul>
-            <select name="Tanques" id="tanques">
-                <option value="tanque">Tanques: Geral</option>
-                <option value="tanque1">Tanque 1</option>
-                <option value="tanque2">Tanque 2</option>
-                <option value="tanque3">Tanque 3</option>
-                <option value="tanque4">Tanque 4</option>
-            </select>
         </div>
     </div>
+    
     <div class="back">
-        <div class="lateral">
+        <div class="text1">
+            <span>Painel Geral</span>
+        </div>
+        <div class="container111">
+            <div class="box111">
+                <span>Temperatura Máxima</span>
+                <div class="textinho">
+                    <span class="Aaxl">Lager x Ale</span>
+                </div>
+                <div class="maxx">
+                    <span class="maxLager" id="lagerMax">0</span><span class="barra">|</span><span class="maxAle"
+                        id="AleMax">0</span>
+                </div>
+            </div>
+            <div class="box111">
+                <span>Status</span>
+                <div class="estado">
+                    <span class="alert_text" id="alerta_texto">Carregando...</span>
+                </div>
+            </div>
+            <div class="box111">
+                <span>Temperatura Mínima</span>
+                <div class="textinho">
+                    <span class="Aaxl">Lager x Ale</span>
+                </div>
+                <div class="minn">
+                    <span class="minLager" id="lagerMin">100</span><span class="barra">|</span><span class="minAle"
+                        id="AleMin">100</span>
+                </div>
+            </div>
+        </div>
+        <div class="text1">
+            <span>Tanques</span>
+            <div class="tempppe">
+    
+            </div>
+        </div>
+        <div class="graficos">
+            <section class="graph">
+                <div class="linha">
+                    <canvas id="lm35Temperatura1"></canvas>
+                    <canvas id="lm35Temperatura2"></canvas>
+                </div>
+                <div class="linha">
+                    <canvas id="lm35Temperatura3"></canvas>
+                    <canvas id="lm35Temperatura4"></canvas>
+                </div>
+            </section>
+        </div>
+        <div class="text1">
+            <span>Métricas Ale</span>
+            <div class="tempppe">
+
+            </div>
+        </div>
+        <div class="container222">
+            <div class="box010">
+                <span>Crítico</span>
+                <div class="tempppe">
+                    <span> 
+                        < 1
+                    </span>
+                </div>
+            </div>
+            <div class="box011">
+                <span>Risco</span>
+                <div class="tempppe">
+                    <span> 
+                        < 18
+                    </span>
+                </div>
+            </div>
+            <div class="box012">
+                <span>Ideal</span>
+                <div class="tempppe">
+                    <span> 
+                        <= 20
+                    </span>
+                </div>
+            </div>
+            <div class="box013">
+                <span>Risco</span>
+                <div class="tempppe">
+                    <span> 
+                        > 20
+                    </span>
+                </div>
+            </div>
+            <div class="box014">
+                <span>Crítico</span>
+                <div class="tempppe">
+                    <span> 
+                        > 30
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="text1">
+            <span>Métricas Lager</span>
+            <div class="tempppe">
+
+            </div>
+        </div>
+        <div class="container222">
+            <div class="box010">
+                <span>Crítico</span>
+                <div class="tempppe">
+                    <span> 
+                        < 0
+                    </span>
+                </div>
+            </div>
+            <div class="box011">
+                <span>Risco</span>
+                <div class="tempppe">
+                    <span> 
+                        < 10
+                    </span>
+                </div>
+            </div>
+            <div class="box012">
+                <span>Ideal</span>
+                <div class="tempppe">
+                    <span> 
+                        <= 12
+                    </span>
+                </div>
+            </div>
+            <div class="box013">
+                <span>Risco</span>
+                <div class="tempppe">
+                    <span> 
+                        > 12
+                    </span>
+                </div>
+            </div>
+            <div class="box014">
+                <span>Crítico</span>
+                <div class="tempppe">
+                    <span> 
+                        > 15
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <div class="lateral">
             <div class="containerlateral">
                 <div class="lateralBar">
                     <div class="pgeral">
@@ -67,37 +214,26 @@
                     <div class="box4">
                         <div class="statusSensores">Status dos Sensores no Último mês</div>
                         <!-- Canvas - Tag dedicada para criação de dashboards -->
-                        <canvas id="grafico_rosca"></canvas>
+        <!-- <canvas id="grafico_rosca"></canvas>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="graficos">
-            <section class="graph">
-                <div class="linha">
-                    <canvas id="lm35Temperatura1"></canvas>
-                    <canvas id="lm35Temperatura2"></canvas>
-                </div>
-                <div class="linha">
-                    <canvas id="lm35Temperatura3"></canvas>
-                    <canvas id="lm35Temperatura4"></canvas>
-                </div>
-            </section>
-        </div>
-        <div class="lateralDireita">
-            <div class="containerlateralDireita">
-                <div class="lateralBarDireita">
-                    <div class="box6">
-                        <div class="alertatexto">Status</div>
-                        <div class="estado">
-                            <span class="alert_text" id="alerta_texto"></span>
-                        </div>
-                    </div>
-                    <div class="box5">
-                        <canvas id="grafico_barra_situação"></canvas>
-                    </div>
+            </div> -->
+        <!-- </div>  -->
+        
+        <!-- <div class="lateralDireita"> -->
+        <!-- <div class="containerlateralDireita"> -->
+        <!-- <div class="lateralBarDireita"> -->
+        <!-- <div class="box6"> -->
+        <!-- <div class="alertatexto">Status</div> -->
+        <!-- <div class="estado">
+            <span class="alert_text" id="alerta_texto"></span>
+        </div> -->
+        <!-- </div> -->
+        <!-- <div class="box5"> -->
+        <!-- <canvas id="grafico_barra_situação"></canvas> -->
+        <!-- </div> -->
 
-                    <!-- <div class="lateralDireita1">
+        <!-- <div class="lateralDireita1">
             <canvas id="grafico_barra_situação"></canvas>
             <div class="box5">
                 <div class="alertatexto">Status</div>
@@ -106,477 +242,493 @@
                 </div>
             </div>  
         </div> -->
-                </div>
-                <script>
+        <div class="rodape"> <!-- Área do rodape-->
+            <span id="contato">
+                <b>Fale Conosco</b>
+                <br>
+                ThermoHolic@outlook.com
+                <br>
+                ThermoHolic.com.br
+            </span>
+            <div class="icons">
+                <a href="https://www.linkedin.com"><img src="../img/linkedin.png" alt="Linkedin"></a>
+                <a href="https://www.facebook.com"><img src="../img/facebook.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com"><img src="../img/instagram.png" alt="Instagram"></a>
+                <a href="https://www.whatsapp.com"><img src="../img/whatsapp.png" alt="WhatsApp"></a>
+            </div>
+    
+        </div>
+    </div>
+    <script>
 
-                    /* -- Gráfico de Rosca -- */
-                    const chart = new Chart('grafico_rosca', {
-                        type: 'doughnut', // Aqui muda o tipo do gráfico, os mais comuns são 'line', 'bar', 'pizza', 'radio', 'doughnut'
-                        data: {
-                            labels: ['Ativo', 'Inativo', 'Manutenção'], // Aqui serve para definir quais são os dados que você quer guardar
-                            datasets: [{
-                                label: 'Sensores', // Aqui é mais para um nome geral
-                                data: [4, 1, 2], // Dados das "labels", qualquer valor é "100%" você não precisa ter um somatório de 100 números para dar 100%, não é assim que porcentagem funciona, porcentagem é flexível e depende do seu valor final, se 50 for o total de coisas que você tem, logo ela é o seu 100%, metade disso (50%) seria 25 coisas
-                                backgroundColor: ['lime', 'red', 'yellow'], // Cor  do fundo
-                                borderColor: ['lime', 'red', 'yellow'], // Cor da borda
+        /* -- Gráfico de Rosca -- */
+        const chart = new Chart('grafico_rosca', {
+            type: 'doughnut', // Aqui muda o tipo do gráfico, os mais comuns são 'line', 'bar', 'pizza', 'radio', 'doughnut'
+            data: {
+                labels: ['Ativo', 'Inativo', 'Manutenção'], // Aqui serve para definir quais são os dados que você quer guardar
+                datasets: [{
+                    label: 'Sensores', // Aqui é mais para um nome geral
+                    data: [4, 1, 2], // Dados das "labels", qualquer valor é "100%" você não precisa ter um somatório de 100 números para dar 100%, não é assim que porcentagem funciona, porcentagem é flexível e depende do seu valor final, se 50 for o total de coisas que você tem, logo ela é o seu 100%, metade disso (50%) seria 25 coisas
+                    backgroundColor: ['lime', 'red', 'yellow'], // Cor  do fundo
+                    borderColor: ['lime', 'red', 'yellow'], // Cor da borda
+                }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+            }
+        });
+
+        // const chart2 = new Chart('grafico_barra_situação', {
+        //     type: 'bar',
+        //     data: {
+        //         labels: ['Temperatura dos tanques'],
+        //         datasets: [{
+        //             label: 'Tanque temperatura ideal',
+        //             data: [4],
+        //             backgroundColor: 'lime',
+        //             borderColor: 'lime',
+        //             borderWidth: 1
+        //         },
+        //         // Para criar duas barras é necessário ter duas "label" dentro do "datasets", isso vendo a partir de um gráfico de barras
+        //         {
+        //             label: 'Tanque em alerta',
+        //             data: [3],
+        //             backgroundColor: 'red',
+        //             borderColor: 'red',
+        //             borderWidth: 1
+        //         }
+        //         ]
+        //     },
+        //     options: {
+        //         maintainAspectRatio: false,
+        //         scales: {
+        //             y: {
+        //                 beginAtZero: true
+        //             }
+        //         }
+        //     }
+        // });
+
+        /* -- lm35Temperatura1 */
+        var contextoLm35Temperatura1 = document.getElementById('lm35Temperatura1').getContext('2d'); // Pega o id do canvas, e guarda na variável contextoLm35Temperatura1
+        var lm35Temperatura1 = new Chart( // New Chart, serve para criar um novo Chart, nesse caso está sendo guardado na variável "lm35Temperatura1"
+            contextoLm35Temperatura1,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Tanque 1- Pilsen',
+                        type: 'line',
+                        borderColor: ['#AD8442'],
+                        backgroundColor: ['#AD8442'],
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
                             }
-                            ]
-                        },
-                        options: {
-                            maintainAspectRatio: false,
-                        }
-                    });
-
-                    const chart2 = new Chart('grafico_barra_situação', {
-                        type: 'bar',
-                        data: {
-                            labels: ['Temperatura dos tanques'],
-                            datasets: [{
-                                label: 'Tanque temperatura ideal',
-                                data: [4],
-                                backgroundColor: 'lime',
-                                borderColor: 'lime',
-                                borderWidth: 1
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Temperatura (LAGER)'
                             },
-                            // Para criar duas barras é necessário ter duas "label" dentro do "datasets", isso vendo a partir de um gráfico de barras
-                            {
-                                label: 'Tanque em alerta',
-                                data: [3],
-                                backgroundColor: 'red',
-                                borderColor: 'red',
-                                borderWidth: 1
+                            ticks: {
+                                beginAtZero: true
                             }
-                            ]
-                        },
-                        options: {
-                            maintainAspectRatio: false,
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
-                            }
-                        }
-                    });
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
 
-                    /* -- lm35Temperatura1 */
-                    var contextoLm35Temperatura1 = document.getElementById('lm35Temperatura1').getContext('2d'); // Pega o id do canvas, e guarda na variável contextoLm35Temperatura1
-                    var lm35Temperatura1 = new Chart( // New Chart, serve para criar um novo Chart, nesse caso está sendo guardado na variável "lm35Temperatura1"
-                        contextoLm35Temperatura1,
-                        {
-                            type: 'line',
-                            data: {
-                                datasets: [{
-                                    label: 'Tanque 1- Pilsen',
-                                    type: 'line',
-                                    borderColor: ['#AD8442'],
-                                    backgroundColor: ['#AD8442'],
-                                }]
+        /* -- lm35Temperatura2 */
+
+        var contextoLm35Temperatura2 = document.getElementById('lm35Temperatura2').getContext('2d');
+        var lm35Temperatura2 = new Chart(
+            contextoLm35Temperatura2,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Tanque 2- IPA',
+                        type: 'line',
+                        borderColor: ['#ffd902'],
+                        backgroundColor: ['#ffe135']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Temperatura (ALE)'
                             },
-                            options: {
-                                scales: {
-                                    xAxes: [{
-                                        distribution: 'series',
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                    }],
-                                    yAxes: [{
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Temperatura (LAGER)'
-                                        },
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                    }]
-                                },
-                                animation: {
-                                    duration: 0
-                                }
+                            ticks: {
+                                beginAtZero: true
                             }
-                        }
-                    );
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
 
-                    /* -- lm35Temperatura2 */
+        /* -- lm35Temperatura3 */
 
-                    var contextoLm35Temperatura2 = document.getElementById('lm35Temperatura2').getContext('2d');
-                    var lm35Temperatura2 = new Chart(
-                        contextoLm35Temperatura2,
-                        {
-                            type: 'line',
-                            data: {
-                                datasets: [{
-                                    label: 'Tanque 2- IPA',
-                                    type: 'line',
-                                    borderColor: ['#ffd902'],
-                                    backgroundColor: ['#ffe135']
-                                }]
+        var contextoLm35Temperatura3 = document.getElementById('lm35Temperatura3').getContext('2d');
+        var lm35Temperatura3 = new Chart(
+            contextoLm35Temperatura3,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Tanque 3- Schwarzbier',
+                        type: 'line',
+                        borderColor: ['#AD8442'],
+                        backgroundColor: ['#AD8442']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Temperatura (LAGER)'
                             },
-                            options: {
-                                scales: {
-                                    xAxes: [{
-                                        distribution: 'series',
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                    }],
-                                    yAxes: [{
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Temperatura (ALE)'
-                                        },
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                    }]
-                                },
-                                animation: {
-                                    duration: 0
-                                }
+                            ticks: {
+                                beginAtZero: true
                             }
-                        }
-                    );
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
 
-                    /* -- lm35Temperatura3 */
+        /* -- lm35Temperatura4 */
 
-                    var contextoLm35Temperatura3 = document.getElementById('lm35Temperatura3').getContext('2d');
-                    var lm35Temperatura3 = new Chart(
-                        contextoLm35Temperatura3,
-                        {
-                            type: 'line',
-                            data: {
-                                datasets: [{
-                                    label: 'Tanque 3- Schwarzbier',
-                                    type: 'line',
-                                    borderColor: ['#AD8442'],
-                                    backgroundColor: ['#AD8442']
-                                }]
+        var contextoLm35Temperatura4 = document.getElementById('lm35Temperatura4').getContext('2d');
+        var lm35Temperatura4 = new Chart(
+            contextoLm35Temperatura4,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Tanque 4- Stout',
+                        type: 'line',
+                        borderColor: ['#ffd902'],
+                        backgroundColor: ['#ffe135']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Temperatura (ALE)'
                             },
-                            options: {
-                                scales: {
-                                    xAxes: [{
-                                        distribution: 'series',
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                    }],
-                                    yAxes: [{
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Temperatura (LAGER)'
-                                        },
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                    }]
-                                },
-                                animation: {
-                                    duration: 0
-                                }
+                            ticks: {
+                                beginAtZero: true
                             }
-                        }
-                    );
-
-                    /* -- lm35Temperatura4 */
-
-                    var contextoLm35Temperatura4 = document.getElementById('lm35Temperatura4').getContext('2d');
-                    var lm35Temperatura4 = new Chart(
-                        contextoLm35Temperatura4,
-                        {
-                            type: 'line',
-                            data: {
-                                datasets: [{
-                                    label: 'Tanque 4- Stout',
-                                    type: 'line',
-                                    borderColor: ['#ffd902'],
-                                    backgroundColor: ['#ffe135']
-                                }]
-                            },
-                            options: {
-                                scales: {
-                                    xAxes: [{
-                                        distribution: 'series',
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                    }],
-                                    yAxes: [{
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Temperatura (ALE)'
-                                        },
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                    }]
-                                },
-                                animation: {
-                                    duration: 0
-                                }
-                            }
-                        }
-                    );
-
-                    /* --inputs temperatura ideal */
-                    // var status1 = Number(estado1.value)
-                    // var status2 = Number(estado2.value)
-                    // var status3 = Number(estado3.value)
-                    // const changest1 = document.getElementById('estado1');
-                    // const changest2 = document.getElementById('estado2');
-                    // const changest3 = document.getElementById('estado3');
-
-                    // changest1.addEventListener('input', () => {
-                    //     // Obtenha o valor da input
-                    //     const newValue = changest1.value;
-                    //     // Atualize os dados do gráfico 
-                    //     chart.data.datasets[0].data[0] = newValue;
-                    //     chart.data.datasets[0].data[1] = newValue;
-                    //     chart.update();
-                    // });
-                    // changest2.addEventListener('input', () => {
-                    //     const newValue = changest2.value;
-                    //     chart.data.datasets[0].data[2] = newValue;
-                    //     chart.data.datasets[0].data[3] = newValue;
-                    //     chart.update();
-                    // }); changest3.addEventListener('input', () => {
-                    //     const newValue = changest3.value;
-                    //     chart.data.datasets[0].data[4] = newValue;
-                    //     chart.data.datasets[0].data[5] = newValue - 1;
-                    //     chart.update();
-                    // });
-                    // GRAFICO TEMPERATURA IDEAL
-                    // var contextomyChart1 = document.getElementById('myChart1').getContext('2d');
-                    // contextomyChart1.canvas.width = 1000;
-                    // contextomyChart1.canvas.height = 300;
-                    // const chart = new Chart('myChart1', {
-                    //     type: 'line',
-                    //     data: {
-                    //         labels: ['3,5 dias', '3,5 dias', '3,5 dias', '3,5 dias', '3,5 dias', '3,5 dias'],
-                    //         datasets: [{
-                    //             label: 'Temperatura ideal',
-                    //             data: [status1, status1, status2, status2, status3, status3],
-                    //             // backgroundColor: 'rgba(54, 162, 235)',
-                    //             // borderColor: 'rgba(54, 162, 235)',
-                    //             // borderWidth: 1
-                    //             borderColor: 'rgba(54, 162, 235)',
-                    //             backgroundColor: ['#ffe135'],
-                    //             borderWidth: 1
-                    //         }
-                    //         ]
-                    //     },
-                    //     options: {
-                    //         maintainAspectRatio: false,
-                    //         scales: {
-                    //             y: {
-                    //                 beginAtZero: true
-                    //             }
-                    //         }
-                    //     }
-                    // });
-
-                    var paginacao = {};
-                    var tempo = {};
-                    // Variáveis usadas para Kpi, e armazenamento de dados
-                    var lager1 = 0;
-                    var ale2 = 0;
-                    var lager3 = 0;
-                    var ale4 = 0;
-                    // Função que retorna um valor, neste caso "grafico"
-                    // Foi necessário criar 4 dessas funções, para que os 4 gráficos funcionem independentemente
-                    function obterDados(grafico) {
-                        var http = new XMLHttpRequest();
-                        http.open('GET', 'http://localhost:3000/sensores/' + 'lm35/temperatura', false);
-                        http.send(null);
-                        var valores = JSON.parse(http.responseText);
-                        if (paginacao['lm35/temperatura'] == null) {
-                            paginacao['lm35/temperatura'] = 0;
-                        }
-                        if (tempo['lm35/temperatura'] == null) {
-                            tempo['lm35/temperatura'] = 0;
-                        }
-                        // Exibir à partir do último elemento exibido anteriormente
-                        var ultimaPaginacao = paginacao['lm35/temperatura'];
-                        paginacao['lm35/temperatura'] = valores.length;
-                        var valores = valores.slice(ultimaPaginacao);
-                        valores.forEach((valor1) => {
-                            //Máximo de 60 itens exibidos no gráfico
-                            if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
-                                grafico.data.labels.shift();
-                                grafico.data.datasets[0].data.shift();
-                            }
-
-                            grafico.data.labels.push(tempo['lm35/temperatura']++);
-                            grafico.data.datasets[0].data.push(parseFloat(valor1 - 14)); // A partir do gráfico, ele entra no data, depois datasets, depois data, depois insere o valor
-                            grafico.update(); // Atualiza o Gráfico
-                            lager1 = valor1 - 14; // Guarda o Valor na variável, posteriormente usada para as Kpi
-                        })
+                        }]
+                    },
+                    animation: {
+                        duration: 0
                     }
+                }
+            }
+        );
 
-                    var paginacao2 = {};
-                    var tempo2 = {};
-                    function obterDados2(grafico2) {
-                        var http = new XMLHttpRequest();
-                        http.open('GET', 'http://localhost:3000/sensores/' + 'lm35/temperatura', false);
-                        http.send(null);
-                        var valores2 = JSON.parse(http.responseText);
-                        if (paginacao2['lm35/temperatura'] == null) {
-                            paginacao2['lm35/temperatura'] = 0;
-                        }
-                        if (tempo2['lm35/temperatura'] == null) {
-                            tempo2['lm35/temperatura'] = 0;
-                        }
-                        // Exibir à partir do último elemento exibido anteriormente
-                        var ultimaPaginacao = paginacao2['lm35/temperatura'];
-                        paginacao2['lm35/temperatura'] = valores2.length;
-                        var valores2 = valores2.slice(ultimaPaginacao);
-                        valores2.forEach((valor2) => {
-                            //Máximo de 60 itens exibidos no gráfico
-                            if (grafico2.data.labels.length == 10 && grafico2.data.datasets[0].data.length == 10) {
-                                grafico2.data.labels.shift();
-                                grafico2.data.datasets[0].data.shift();
-                            }
+        /* --inputs temperatura ideal */
+        // var status1 = Number(estado1.value)
+        // var status2 = Number(estado2.value)
+        // var status3 = Number(estado3.value)
+        // const changest1 = document.getElementById('estado1');
+        // const changest2 = document.getElementById('estado2');
+        // const changest3 = document.getElementById('estado3');
 
-                            grafico2.data.labels.push(tempo2['lm35/temperatura']++);
-                            grafico2.data.datasets[0].data.push(parseFloat(valor2));
-                            grafico2.update();
-                            ale2 = valor2;
-                        })
-                    }
+        // changest1.addEventListener('input', () => {
+        //     // Obtenha o valor da input
+        //     const newValue = changest1.value;
+        //     // Atualize os dados do gráfico 
+        //     chart.data.datasets[0].data[0] = newValue;
+        //     chart.data.datasets[0].data[1] = newValue;
+        //     chart.update();
+        // });
+        // changest2.addEventListener('input', () => {
+        //     const newValue = changest2.value;
+        //     chart.data.datasets[0].data[2] = newValue;
+        //     chart.data.datasets[0].data[3] = newValue;
+        //     chart.update();
+        // }); changest3.addEventListener('input', () => {
+        //     const newValue = changest3.value;
+        //     chart.data.datasets[0].data[4] = newValue;
+        //     chart.data.datasets[0].data[5] = newValue - 1;
+        //     chart.update();
+        // });
+        // GRAFICO TEMPERATURA IDEAL
+        // var contextomyChart1 = document.getElementById('myChart1').getContext('2d');
+        // contextomyChart1.canvas.width = 1000;
+        // contextomyChart1.canvas.height = 300;
+        // const chart = new Chart('myChart1', {
+        //     type: 'line',
+        //     data: {
+        //         labels: ['3,5 dias', '3,5 dias', '3,5 dias', '3,5 dias', '3,5 dias', '3,5 dias'],
+        //         datasets: [{
+        //             label: 'Temperatura ideal',
+        //             data: [status1, status1, status2, status2, status3, status3],
+        //             // backgroundColor: 'rgba(54, 162, 235)',
+        //             // borderColor: 'rgba(54, 162, 235)',
+        //             // borderWidth: 1
+        //             borderColor: 'rgba(54, 162, 235)',
+        //             backgroundColor: ['#ffe135'],
+        //             borderWidth: 1
+        //         }
+        //         ]
+        //     },
+        //     options: {
+        //         maintainAspectRatio: false,
+        //         scales: {
+        //             y: {
+        //                 beginAtZero: true
+        //             }
+        //         }
+        //     }
+        // });
 
-                    var paginacao3 = {};
-                    var tempo3 = {};
-                    function obterDados3(grafico3) {
-                        var http = new XMLHttpRequest();
-                        http.open('GET', 'http://localhost:3000/sensores/' + 'lm35/temperatura', false);
-                        http.send(null);
-                        var valores2 = JSON.parse(http.responseText);
-                        if (paginacao3['lm35/temperatura'] == null) {
-                            paginacao3['lm35/temperatura'] = 0;
-                        }
-                        if (tempo3['lm35/temperatura'] == null) {
-                            tempo3['lm35/temperatura'] = 0;
-                        }
-                        // Exibir à partir do último elemento exibido anteriormente
-                        var ultimaPaginacao = paginacao3['lm35/temperatura'];
-                        paginacao3['lm35/temperatura'] = valores2.length;
-                        var valores2 = valores2.slice(ultimaPaginacao);
-                        valores2.forEach((valor3) => {
-                            //Máximo de 60 itens exibidos no gráfico
-                            if (grafico3.data.labels.length == 10 && grafico3.data.datasets[0].data.length == 10) {
-                                grafico3.data.labels.shift();
-                                grafico3.data.datasets[0].data.shift();
-                            }
+        var paginacao = {};
+        var tempo = {};
+        // Variáveis usadas para Kpi, e armazenamento de dados
+        var lager1 = 0;
+        var ale2 = 0;
+        var lager3 = 0;
+        var ale4 = 0;
+        // Função que retorna um valor, neste caso "grafico"
+        // Foi necessário criar 4 dessas funções, para que os 4 gráficos funcionem independentemente
+        function obterDados(grafico) {
+            var http = new XMLHttpRequest();
+            http.open('GET', 'http://localhost:3000/sensores/' + 'lm35/temperatura', false);
+            http.send(null);
+            var valores = JSON.parse(http.responseText);
+            if (paginacao['lm35/temperatura'] == null) {
+                paginacao['lm35/temperatura'] = 0;
+            }
+            if (tempo['lm35/temperatura'] == null) {
+                tempo['lm35/temperatura'] = 0;
+            }
+            // Exibir à partir do último elemento exibido anteriormente
+            var ultimaPaginacao = paginacao['lm35/temperatura'];
+            paginacao['lm35/temperatura'] = valores.length;
+            var valores = valores.slice(ultimaPaginacao);
+            valores.forEach((valor1) => {
+                //Máximo de 60 itens exibidos no gráfico
+                if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+                    grafico.data.labels.shift();
+                    grafico.data.datasets[0].data.shift();
+                }
 
-                            grafico3.data.labels.push(tempo3['lm35/temperatura']++);
-                            grafico3.data.datasets[0].data.push(parseFloat(valor3 - 10));
-                            grafico3.update();
-                            lager3 = valor3 - 10;
-                        })
-                    }
+                grafico.data.labels.push(tempo['lm35/temperatura']++);
+                grafico.data.datasets[0].data.push(parseFloat(valor1 - 14)); // A partir do gráfico, ele entra no data, depois datasets, depois data, depois insere o valor
+                grafico.update(); // Atualiza o Gráfico
+                lager1 = valor1 - 14; // Guarda o Valor na variável, posteriormente usada para as Kpi
+            })
+        }
 
-                    var paginacao4 = {};
-                    var tempo4 = {};
-                    function obterDados4(grafico4) {
-                        var http = new XMLHttpRequest();
-                        http.open('GET', 'http://localhost:3000/sensores/' + 'lm35/temperatura', false);
-                        http.send(null);
-                        var valores2 = JSON.parse(http.responseText);
-                        if (paginacao4['lm35/temperatura'] == null) {
-                            paginacao4['lm35/temperatura'] = 0;
-                        }
-                        if (tempo4['lm35/temperatura'] == null) {
-                            tempo4['lm35/temperatura'] = 0;
-                        }
-                        // Exibir à partir do último elemento exibido anteriormente
-                        var ultimaPaginacao = paginacao4['lm35/temperatura'];
-                        paginacao4['lm35/temperatura'] = valores2.length;
-                        var valores2 = valores2.slice(ultimaPaginacao);
-                        valores2.forEach((valor4) => {
-                            //Máximo de 60 itens exibidos no gráfico
-                            if (grafico4.data.labels.length == 10 && grafico4.data.datasets[0].data.length == 10) {
-                                grafico4.data.labels.shift();
-                                grafico4.data.datasets[0].data.shift();
-                            }
+        var paginacao2 = {};
+        var tempo2 = {};
+        function obterDados2(grafico2) {
+            var http = new XMLHttpRequest();
+            http.open('GET', 'http://localhost:3000/sensores/' + 'lm35/temperatura', false);
+            http.send(null);
+            var valores2 = JSON.parse(http.responseText);
+            if (paginacao2['lm35/temperatura'] == null) {
+                paginacao2['lm35/temperatura'] = 0;
+            }
+            if (tempo2['lm35/temperatura'] == null) {
+                tempo2['lm35/temperatura'] = 0;
+            }
+            // Exibir à partir do último elemento exibido anteriormente
+            var ultimaPaginacao = paginacao2['lm35/temperatura'];
+            paginacao2['lm35/temperatura'] = valores2.length;
+            var valores2 = valores2.slice(ultimaPaginacao);
+            valores2.forEach((valor2) => {
+                //Máximo de 60 itens exibidos no gráfico
+                if (grafico2.data.labels.length == 10 && grafico2.data.datasets[0].data.length == 10) {
+                    grafico2.data.labels.shift();
+                    grafico2.data.datasets[0].data.shift();
+                }
 
-                            grafico4.data.labels.push(tempo4['lm35/temperatura']++);
-                            grafico4.data.datasets[0].data.push(parseFloat(valor4 - 5));
-                            grafico4.update();
-                            ale4 = valor4 - 5;
-                        })
-                    }
-                    function Calcula_TempMaxMin() {
-                        var teste1 = Number(lagerMin.innerHTML); //Variável para pegar o valor já inserido no html, no caso 100
-                        var teste2 = Number(lagerMax.innerHTML); //Variável para pegar o valor já inserido no html, no caso 0
-                        var teste3 = Number(AleMin.innerHTML); //Variável para pegar o valor já inserido no html, no caso 100
-                        var teste4 = Number(AleMax.innerHTML); //Variável para pegar o valor já inserido no html, no caso 0
-                        // If para verificar caso alguma das temperaturas lidas sejam menores, caso sim, atualiza
-                        if (lager1 < teste1) {
-                            lagerMin.innerHTML = lager1;
-                        } else if (lager3 < teste1) {
-                            lagerMin.innerHTML = lager3;
-                        }
-                        // If para verificar caso alguma das temperaturas lidas sejam maiores, caso sim, atualiza
-                        if (lager1 > teste2) {
-                            lagerMax.innerHTML = lager1;
-                        } else if (lager3 > teste2) {
-                            lagerMax.innerHTML = lager3;
-                        }
-                        // If para verificar caso alguma das temperaturas lidas sejam menores, caso sim, atualiza
-                        if (ale2 < teste3) {
-                            AleMin.innerHTML = ale2;
-                        } else if (ale4 < teste3) {
-                            AleMin.innerHTML = ale4;
-                        }
-                        // If para verificar caso alguma das temperaturas lidas sejam maiores, caso sim, atualiza
-                        if (ale2 > teste4) {
-                            AleMax.innerHTML = ale2;
-                        } else if (ale4 > teste4) {
-                            AleMax.innerHTML = ale4;
-                        }
-                        // Verifica qual se algum tanque está em risco e qual
-                        if (lager1 < 0 || lager1 > 15) {
-                            alerta_texto.innerHTML = 'Taque 1 - Em alerta';
-                        } else if (lager1 >= 0 && lager1 < 10 || lager1 > 12 && lager1 <= 15) {
-                            alerta_texto.innerHTML = 'Taque 1- Em alerta';
-                        } else if (ale2 <= 1 || ale2 >= 30) {
-                            alerta_texto.innerHTML = 'Taque 2 - Em alerta';
-                        } else if (ale2 >= 2 && ale2 <= 17 || ale2 >= 21 && ale2 <= 29) {
-                            alerta_texto.innerHTML = 'Taque 2 - Em alerta';
-                        } else if (lager3 < 0 || lager3 > 15) {
-                            alerta_texto.innerHTML = 'Taque 3 - Em alerta';
-                        } else if (lager3 >= 0 && lager3 < 10 || lager3 > 12 && lager3 <= 15) {
-                            alerta_texto.innerHTML = 'Taque 3 - Em alerta';
-                        } else if (ale4 <= 1 || ale4 >= 30) {
-                            alerta_texto.innerHTML = 'Taque 4 - Em alerta';
-                        } else if (ale4 >= 2 && ale4 <= 17 || ale4 >= 21 && ale4 <= 29) {
-                            alerta_texto.innerHTML = 'Taque 4 - Em alerta';
-                        } else {
-                            alerta_texto.innerHTML = 'Todos os tanques estão ok';
-                        }
-                    }
-                    // Função que serve para ficar "rodando" essas outras funções a cada X milisegundos, no caso 1000 = 1 segundo
-                    setInterval(() => {
-                        obterDados(lm35Temperatura1);
-                        obterDados2(lm35Temperatura2);
-                        obterDados3(lm35Temperatura3);
-                        obterDados4(lm35Temperatura4);
-                        Calcula_TempMaxMin();
-                    }, 1000);
-                    function ChamaTanque() {
-                        var pagina = tanques.value;
-                        if (pagina == "tanque") {
-                            select_tanque.href = "Painel Geral.html";
-                        } else if (pagina == "tanque1") {
-                            select_tanque.href = "Tanques/tanque1.html";
-                        } else if (pagina == "tanque2") {
-                            select_tanque.href = "Tanques/tanque2.html";
-                        } else if (pagina == "tanque3") {
-                            select_tanque.href = "Tanques/tanque3.html";
-                        } else if (pagina == "tanque4") {
-                            select_tanque.href = "Tanques/tanque4.html";
-                        }
-                    }
-                </script>
+                grafico2.data.labels.push(tempo2['lm35/temperatura']++);
+                grafico2.data.datasets[0].data.push(parseFloat(valor2));
+                grafico2.update();
+                ale2 = valor2;
+            })
+        }
+
+        var paginacao3 = {};
+        var tempo3 = {};
+        function obterDados3(grafico3) {
+            var http = new XMLHttpRequest();
+            http.open('GET', 'http://localhost:3000/sensores/' + 'lm35/temperatura', false);
+            http.send(null);
+            var valores2 = JSON.parse(http.responseText);
+            if (paginacao3['lm35/temperatura'] == null) {
+                paginacao3['lm35/temperatura'] = 0;
+            }
+            if (tempo3['lm35/temperatura'] == null) {
+                tempo3['lm35/temperatura'] = 0;
+            }
+            // Exibir à partir do último elemento exibido anteriormente
+            var ultimaPaginacao = paginacao3['lm35/temperatura'];
+            paginacao3['lm35/temperatura'] = valores2.length;
+            var valores2 = valores2.slice(ultimaPaginacao);
+            valores2.forEach((valor3) => {
+                //Máximo de 60 itens exibidos no gráfico
+                if (grafico3.data.labels.length == 10 && grafico3.data.datasets[0].data.length == 10) {
+                    grafico3.data.labels.shift();
+                    grafico3.data.datasets[0].data.shift();
+                }
+
+                grafico3.data.labels.push(tempo3['lm35/temperatura']++);
+                grafico3.data.datasets[0].data.push(parseFloat(valor3 - 10));
+                grafico3.update();
+                lager3 = valor3 - 10;
+            })
+        }
+
+        var paginacao4 = {};
+        var tempo4 = {};
+        function obterDados4(grafico4) {
+            var http = new XMLHttpRequest();
+            http.open('GET', 'http://localhost:3000/sensores/' + 'lm35/temperatura', false);
+            http.send(null);
+            var valores2 = JSON.parse(http.responseText);
+            if (paginacao4['lm35/temperatura'] == null) {
+                paginacao4['lm35/temperatura'] = 0;
+            }
+            if (tempo4['lm35/temperatura'] == null) {
+                tempo4['lm35/temperatura'] = 0;
+            }
+            // Exibir à partir do último elemento exibido anteriormente
+            var ultimaPaginacao = paginacao4['lm35/temperatura'];
+            paginacao4['lm35/temperatura'] = valores2.length;
+            var valores2 = valores2.slice(ultimaPaginacao);
+            valores2.forEach((valor4) => {
+                //Máximo de 60 itens exibidos no gráfico
+                if (grafico4.data.labels.length == 10 && grafico4.data.datasets[0].data.length == 10) {
+                    grafico4.data.labels.shift();
+                    grafico4.data.datasets[0].data.shift();
+                }
+
+                grafico4.data.labels.push(tempo4['lm35/temperatura']++);
+                grafico4.data.datasets[0].data.push(parseFloat(valor4 - 5));
+                grafico4.update();
+                ale4 = valor4 - 5;
+            })
+        }
+        function Calcula_TempMaxMin() {
+            var teste1 = Number(lagerMin.innerHTML); //Variável para pegar o valor já inserido no html, no caso 100
+            var teste2 = Number(lagerMax.innerHTML); //Variável para pegar o valor já inserido no html, no caso 0
+            var teste3 = Number(AleMin.innerHTML); //Variável para pegar o valor já inserido no html, no caso 100
+            var teste4 = Number(AleMax.innerHTML); //Variável para pegar o valor já inserido no html, no caso 0
+            // If para verificar caso alguma das temperaturas lidas sejam menores, caso sim, atualiza
+            if (lager1 < teste1) {
+                lagerMin.innerHTML = lager1.toFixed(2);
+            } else if (lager3 < teste1) {
+                lagerMin.innerHTML = lager3.toFixed(2);
+            }
+            // If para verificar caso alguma das temperaturas lidas sejam maiores, caso sim, atualiza
+            if (lager1 > teste2) {
+                lagerMax.innerHTML = lager1.toFixed(2);
+            } else if (lager3 > teste2) {
+                lagerMax.innerHTML = lager3.toFixed(2);
+            }
+            // If para verificar caso alguma das temperaturas lidas sejam menores, caso sim, atualiza
+            if (ale2 < teste3) {
+                AleMin.innerHTML = ale2.toFixed(2);
+            } else if (ale4 < teste3) {
+                AleMin.innerHTML = ale4.toFixed(2);
+            }
+            // If para verificar caso alguma das temperaturas lidas sejam maiores, caso sim, atualiza
+            if (ale2 > teste4) {
+                AleMax.innerHTML = ale2.toFixed(2);
+            } else if (ale4 > teste4) {
+                AleMax.innerHTML = ale4.toFixed(2);
+            }
+            // Verifica qual se algum tanque está em risco e qual
+            if (lager1 < 0 || lager1 > 15) {
+                alerta_texto.innerHTML = 'Taque 1 - Em alerta';
+            } else if (lager1 >= 0 && lager1 < 10 || lager1 > 12 && lager1 <= 15) {
+                alerta_texto.innerHTML = 'Taque 1- Em alerta';
+            } else if (ale2 <= 1 || ale2 >= 30) {
+                alerta_texto.innerHTML = 'Taque 2 - Em alerta';
+            } else if (ale2 >= 2 && ale2 <= 17 || ale2 >= 21 && ale2 <= 29) {
+                alerta_texto.innerHTML = 'Taque 2 - Em alerta';
+            } else if (lager3 < 0 || lager3 > 15) {
+                alerta_texto.innerHTML = 'Taque 3 - Em alerta';
+            } else if (lager3 >= 0 && lager3 < 10 || lager3 > 12 && lager3 <= 15) {
+                alerta_texto.innerHTML = 'Taque 3 - Em alerta';
+            } else if (ale4 <= 1 || ale4 >= 30) {
+                alerta_texto.innerHTML = 'Taque 4 - Em alerta';
+            } else if (ale4 >= 2 && ale4 <= 17 || ale4 >= 21 && ale4 <= 29) {
+                alerta_texto.innerHTML = 'Taque 4 - Em alerta';
+            } else {
+                alerta_texto.innerHTML = 'Todos os tanques estão ok';
+            }
+        }
+        // Função que serve para ficar "rodando" essas outras funções a cada X milisegundos, no caso 1000 = 1 segundo
+        setInterval(() => {
+            obterDados(lm35Temperatura1);
+            obterDados2(lm35Temperatura2);
+            obterDados3(lm35Temperatura3);
+            obterDados4(lm35Temperatura4);
+            Calcula_TempMaxMin();
+        }, 1000);
+        function ChamaTanque() {
+            var pagina = tanques.value;
+            if (pagina == "tanque") {
+                select_tanque.href = "Painel Geral.html";
+            } else if (pagina == "tanque1") {
+                select_tanque.href = "Tanques/tanque1.html";
+            } else if (pagina == "tanque2") {
+                select_tanque.href = "Tanques/tanque2.html";
+            } else if (pagina == "tanque3") {
+                select_tanque.href = "Tanques/tanque3.html";
+            } else if (pagina == "tanque4") {
+                select_tanque.href = "Tanques/tanque4.html";
+            }
+        }
+    </script>
 </body>
 
 </html>
