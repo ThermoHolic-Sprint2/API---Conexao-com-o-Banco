@@ -2,24 +2,24 @@
 
 _Web Data Visualization = Visualização de Dados na Web_
 
-##ThermoHolic - Repositório web-data-viz
+## ThermoHolic - Repositório web-data-viz
 Este repositório faz parte do projeto ThermoHolic, uma aplicação voltada para o monitoramento de temperatura na produção de cervejas artesanais. O repositório web-data-viz contém o código fonte em JavaScript e HTML responsável por fornecer a visualização dos dados coletados na forma de uma dashboard interativa. O banco de dados utilizado é o MySQL, gerenciado pelo MySql Workbench.
 
-#Visão Geral
+# Visão Geral
 O ThermoHolic é um sistema que permite aos usuários monitorar e controlar a temperatura durante o processo de produção de cervejas artesanais. Através da coleta de dados provenientes de sensores conectados ao Arduino, os dados são armazenados no banco de dados MySQL e exibidos na forma de uma dashboard amigável ao usuário.
 
 Este repositório é responsável por fornecer o front-end da aplicação, onde os dados coletados são visualizados e interagidos. O código fonte em JavaScript e HTML é responsável por buscar os dados no banco de dados e exibi-los de forma gráfica e intuitiva.
 
-#Funcionalidades Principais
+# Funcionalidades Principais
 - Visualização de Dados: A aplicação web oferece uma dashboard interativa que exibe os dados de temperatura coletados ao longo do tempo, permitindo aos usuários analisar tendências e identificar variações.
 - Gráficos Interativos: Os dados são apresentados em gráficos interativos, com opções de zoom, seleção de intervalos e exibição de detalhes adicionais, proporcionando uma experiência visual rica.
 - Atualização em Tempo Real: Os dados são atualizados automaticamente na dashboard conforme novas leituras de temperatura são registradas no banco de dados, mantendo os usuários sempre atualizados.
 
-#Tecnologias Utilizadas
+# Tecnologias Utilizadas
 - Linguagens de Programação: JavaScript, HTML, CSS
 - Banco de Dados: MySQL
 
-#Configuração e Uso
+# Configuração e Uso
 - Clone este repositório em sua máquina local.
 - Certifique-se de ter o ambiente de desenvolvimento JavaScript configurado corretamente.
 - Instale as dependências necessárias utilizando o gerenciador de pacotes de sua preferência (por exemplo, npm ou yarn).
