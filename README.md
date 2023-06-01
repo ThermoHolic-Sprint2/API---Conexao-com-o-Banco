@@ -1,4 +1,5 @@
-<img src="https://github.com/ThermoHolic-Sprint2/Site-ThermoHolic/assets/126488672/86edd50f-843e-406a-bd48-ae75e7566a58" width="600px">
+<img src="https://github.com/ThermoHolic-Sprint2/Site-ThermoHolic/assets/126488672/dd8c01bf-567d-4898-a53f-4e0a2b709d90" >
+
 
 _Web Data Visualization = Visualização de Dados na Web_
 
