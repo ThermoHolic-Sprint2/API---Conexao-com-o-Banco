@@ -109,7 +109,6 @@ INSERT INTO Tanque VALUES
 	(1, 'Tanque C', 'Stout', '18', '20', 3, 4, 2), -- ALE
 	(1, 'Tanque D','Schwarzbier', '10', '12', 1, 3, 1); -- LAGER
     
-    create database thermoholic;
     
 DELIMITER $
  DROP FUNCTION IF EXISTS fun_valida_usuario;
