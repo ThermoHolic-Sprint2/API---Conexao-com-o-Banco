@@ -321,3 +321,11 @@ body {
     /*configuração do email de contato do Fale Conosco*/
     display: block;
 }
+
+.dados {
+    width: 100%;
+}
+
+.dados span{
+    margin: auto;
+}

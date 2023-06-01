@@ -198,17 +198,13 @@ button:hover{
 }
 .texto1{
     /*div contendo o texto de direcionamento entre login e cadastro*/
-    width: 50%;
+    width: 70%;
     justify-content: space-between;
     margin-top: 30px;
     display: flex;
     margin-bottom: 30px;
 }
 
-.texto1 span {
-    /*estilização do texto de direcionamento entre login e cadastro*/
-    width: fit-content;
-}
 
 .img-login{
     /*imagem do login*/
