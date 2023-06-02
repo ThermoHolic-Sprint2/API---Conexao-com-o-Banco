@@ -359,3 +359,31 @@ margin-top: 50px;
 }
 
 /* FIM DOS GRAFICOS */
+
+/* Alarme */
+
+.dash {
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    right: 50px;
+}
+
+.separacao {  
+  border-radius: 5px;
+  width: 300px;
+  height: 80px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+.boxAlert {
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(46, 46, 46);
+    text-shadow: 2px 2px #0000006f;
+  }

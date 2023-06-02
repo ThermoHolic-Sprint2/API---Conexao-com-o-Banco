@@ -271,3 +271,7 @@ canvas {
     width: 30px;
     height: 30px;
 }
+
+.tiragrafico{
+    display: none;
+}

@@ -9,6 +9,7 @@
     <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="css/estilo_dashboard.css">
+    <script src="alertas.js"></script>
 </head>
 
 <body>
@@ -33,6 +34,21 @@
     </div>
     
     <div class="back">
+
+        <div class="dash">
+            <div class="separacao" id="boxalerta1">
+                <div class="boxAlert" id="alerta1"></div> <br/>
+            </div>
+            <div class="separacao" id="boxalerta2">
+                <div class="boxAlert" id="alerta2"></div> <br/>
+            </div>
+            <div class="separacao" id="boxalerta3">
+                <div class="boxAlert" id="alerta3"></div> <br/>
+            </div>
+            <div class="separacao" id="boxalerta4">
+                <div class="boxAlert" id="alerta4"></div> <br/>
+            </div>
+        </div>
         <div class="text1">
             <span>Painel Geral</span>
         </div>
@@ -561,6 +577,7 @@
                 grafico.data.datasets[0].data.push(parseFloat(valor1 - 14)); // A partir do gráfico, ele entra no data, depois datasets, depois data, depois insere o valor
                 grafico.update(); // Atualiza o Gráfico
                 lager1 = valor1 - 14; // Guarda o Valor na variável, posteriormente usada para as Kpi
+                sessionStorage.setItem('Temperatura1', lager1);
             })
         }
 
@@ -592,6 +609,7 @@
                 grafico2.data.datasets[0].data.push(parseFloat(valor2));
                 grafico2.update();
                 ale2 = valor2;
+                sessionStorage.setItem('Temperatura2', ale2);
             })
         }
 
@@ -623,6 +641,7 @@
                 grafico3.data.datasets[0].data.push(parseFloat(valor3 - 10));
                 grafico3.update();
                 lager3 = valor3 - 10;
+                sessionStorage.setItem('Temperatura3', lager3);
             })
         }
 
@@ -654,6 +673,7 @@
                 grafico4.data.datasets[0].data.push(parseFloat(valor4 - 5));
                 grafico4.update();
                 ale4 = valor4 - 5;
+                sessionStorage.setItem('Temperatura4', ale4);
             })
         }
         function Calcula_TempMaxMin() {
@@ -685,21 +705,23 @@
             } else if (ale4 > teste4) {
                 AleMax.innerHTML = ale4.toFixed(2);
             }
+            AtualizarKPI();
             // Verifica qual se algum tanque está em risco e qual
             if (lager1 < 0 || lager1 > 15) {
-                alerta_texto.innerHTML = 'Taque 1 - Em alerta';
+                alerta_texto.innerHTML = 'Taque 1 - Super em alerta';
             } else if (lager1 >= 0 && lager1 < 10 || lager1 > 12 && lager1 <= 15) {
                 alerta_texto.innerHTML = 'Taque 1- Em alerta';
             } else if (ale2 <= 1 || ale2 >= 30) {
-                alerta_texto.innerHTML = 'Taque 2 - Em alerta';
+                alerta_texto.innerHTML = 'Taque 2 - Super em alerta';
             } else if (ale2 >= 2 && ale2 <= 17 || ale2 >= 21 && ale2 <= 29) {
                 alerta_texto.innerHTML = 'Taque 2 - Em alerta';
             } else if (lager3 < 0 || lager3 > 15) {
-                alerta_texto.innerHTML = 'Taque 3 - Em alerta';
+                alerta_texto.innerHTML = 'Taque 3 - Super em alerta';
+                alerta_texto.style.backgroundColor = "red";
             } else if (lager3 >= 0 && lager3 < 10 || lager3 > 12 && lager3 <= 15) {
                 alerta_texto.innerHTML = 'Taque 3 - Em alerta';
             } else if (ale4 <= 1 || ale4 >= 30) {
-                alerta_texto.innerHTML = 'Taque 4 - Em alerta';
+                alerta_texto.innerHTML = 'Taque 4 - Super em alerta';
             } else if (ale4 >= 2 && ale4 <= 17 || ale4 >= 21 && ale4 <= 29) {
                 alerta_texto.innerHTML = 'Taque 4 - Em alerta';
             } else {

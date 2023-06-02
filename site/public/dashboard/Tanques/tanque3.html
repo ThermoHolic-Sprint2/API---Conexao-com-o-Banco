@@ -8,6 +8,7 @@
     <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="../css/Tanques.css">
+    <script src="../alertas.js"></script>
 </head>
 <body>
     <div class="header">
@@ -30,6 +31,10 @@
         </div>
     </div>
     <div class="back">
+        <div id="alerta1"></div>
+        <div id="alerta2"></div>
+        <div id="alerta3"></div>
+        <div id="alerta4"></div>
         <div class="text1">
             <span>Tanque 3</span>
         </div>
@@ -62,7 +67,12 @@
         <div class="graficos">
             <section class="graph">
                 <div class="linha">
-                    <canvas id="lm35Temperatura1"></canvas>
+                    <canvas id="lm35Temperatura3"></canvas>
+                    <div class="tiragrafico">
+                        <canvas id="lm35Temperatura2"></canvas>
+                        <canvas id="lm35Temperatura1"></canvas>
+                        <canvas id="lm35Temperatura4"></canvas>
+                    </div>
                     <div class="grafico_lateral_direito">
                     </div>
                 </div>
