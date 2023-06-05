@@ -31,21 +31,28 @@
         </div>
     </div>
     <div class="back">
-        <div id="alerta1"></div>
-        <div id="alerta2"></div>
-        <div id="alerta3"></div>
-        <div id="alerta4"></div>
+        <div class="dash">
+            <div class="separacao" id="boxalerta1">
+                <div class="boxAlert" id="alerta1"></div> <br/>
+            </div>
+            <div class="separacao" id="boxalerta2">
+                <div class="boxAlert" id="alerta2"></div> <br/>
+            </div>
+            <div class="separacao" id="boxalerta3">
+                <div class="boxAlert" id="alerta3"></div> <br/>
+            </div>
+            <div class="separacao" id="boxalerta4">
+                <div class="boxAlert" id="alerta4"></div> <br/>
+            </div>
+        </div>
         <div class="text1">
             <span>Tanque 1</span>
         </div>
         <div class="container111">
             <div class="box111">
-                <span>Temperatura Máxima</span>
-                <div class="textinho">
-                    <span class="Aaxl">Lager</span>
-                </div>
+                <span>Temperatura Atual</span>
                 <div class="maxx">
-                    <span class="maxLager" id="lagerMax">0</span>
+                    <span class="lagerMax" id="atual"></span>
                 </div>
             </div>
             <div class="box111">
@@ -55,12 +62,12 @@
                 </div>
             </div>
             <div class="box111">
-                <span>Temperatura Mínima</span>
+                <span>Sala de Fermentação</span>
                 <div class="textinho">
                     <span class="Aaxl">Lager</span>
                 </div>
                 <div class="minn">
-                    <span class="minLager" id="lagerMin">100</span>
+                    <span class="minLager">1</span>
                 </div>
             </div>
         </div>
@@ -80,9 +87,12 @@
         </div>
         <div class="container111">
             <div class="box111">
-                <span>Temperatura Atual</span>
+                <span>Temperatura Máxima</span>
+                <div class="textinho">
+                    <span class="Aaxl">Lager</span>
+                </div>
                 <div class="maxx">
-                    <span class="lagerMax" id="atual"></span>
+                    <span class="maxLager" id="lagerMax">0</span>
                 </div>
             </div>
             <div class="box111">
@@ -92,12 +102,12 @@
                 </div>
             </div>
             <div class="box111">
-                <span>Sala de Fermentação</span>
+                <span>Temperatura Mínima</span>
                 <div class="textinho">
                     <span class="Aaxl">Lager</span>
                 </div>
                 <div class="minn">
-                    <span class="minLager">1</span>
+                    <span class="minLager" id="lagerMin">100</span>
                 </div>
             </div>
         </div>
@@ -167,9 +177,8 @@
     
         </div>
     <script>
-
          /* -- lm35Temperatura1 */
-         var contextoLm35Temperatura1 = document.getElementById('lm35Temperatura1').getContext('2d'); // Pega o id do canvas, e guarda na variável contextoLm35Temperatura1
+        var contextoLm35Temperatura1 = document.getElementById('lm35Temperatura1').getContext('2d'); // Pega o id do canvas, e guarda na variável contextoLm35Temperatura1
         var lm35Temperatura1 = new Chart( // New Chart, serve para criar um novo Chart, nesse caso está sendo guardado na variável "lm35Temperatura1"
             contextoLm35Temperatura1,
             {
@@ -475,12 +484,13 @@
             AtualizarKPI();
             // Verifica qual se algum tanque está em risco e qual
             if (lager1 < 0 || lager1 > 15) {
-                alerta_texto.innerHTML = 'Taque 1 - Super em alerta';
+                alerta_texto.innerHTML = 'Tanque 1 - Super em alerta';
             } else if (lager1 >= 0 && lager1 < 10 || lager1 > 12 && lager1 <= 15) {
-                alerta_texto.innerHTML = 'Taque 1- Em alerta';
+                alerta_texto.innerHTML = 'Tanque 1 - Em alerta';
             } else {
-                alerta_texto.innerHTML = 'Todos os tanques estão ok';
+                alerta_texto.innerHTML = 'Tanque 1 - OK';
             }
+            atual.innerHTML = lager1.toFixed(2);
         }
         // Função que serve para ficar "rodando" essas outras funções a cada X milisegundos, no caso 1000 = 1 segundo
         setInterval(() => {
@@ -495,13 +505,13 @@
             if (pagina == "tanque") {
                 select_tanque.href = "Painel Geral.html";
             } else if (pagina == "tanque1") {
-                select_tanque.href = "Tanques/tanque1.html";
+                select_tanque.href = "tanque1.html";
             } else if (pagina == "tanque2") {
-                select_tanque.href = "Tanques/tanque2.html";
+                select_tanque.href = "tanque2.html";
             } else if (pagina == "tanque3") {
-                select_tanque.href = "Tanques/tanque3.html";
+                select_tanque.href = "tanque3.html";
             } else if (pagina == "tanque4") {
-                select_tanque.href = "Tanques/tanque4.html";
+                select_tanque.href = "tanque4.html";
             }
         }
     </script>

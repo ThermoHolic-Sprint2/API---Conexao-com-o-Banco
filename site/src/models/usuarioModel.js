@@ -49,7 +49,7 @@ function cadastrarUsuario(nome, email, tell, cpf, senha, codEmp) {
     // get_idEmpresa(idEmpresa);
 
     var instrucao = `
-        INSERT INTO Usuario (Nome, Email, Celular, CPF, Senha, TipoUsuario, fkEmpresaU) VALUES ('${nome}', '${email}', '${tell}', '${cpf}', sha2('${senha}', 256), 'Funcionário', ${codEmp});
+        INSERT INTO Usuario (Nome, Email, Celular, CPF, Senha, fkEmpresaU) VALUES ('${nome}', '${email}', '${tell}', '${cpf}', sha2('${senha}', 256), ${codEmp});
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
